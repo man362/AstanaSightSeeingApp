@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.03">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="206dp"
+            app:srcCompat="@drawable/baiterek_pic"
+            android:id="@+id/ivPlacePic"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:scaleType="centerCrop"
+
+            />
+
+        <View
+
+            android:layout_width="match_parent"
+            android:layout_height="9dp"
+            android:layout_below="@+id/ivPlacePic"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/vWhiteLine"></View>
+
+        <TextView
+            android:id="@+id/tvPlaceName"
+            android:text="  Place Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textColorLink="@color/colorAccent"
+            android:textColor="@color/colorAccent"
+            android:background="@color/blackTransparentColor"
+            android:textStyle="bold"
+            android:layout_above="@+id/vWhiteLine"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            />
+    </RelativeLayout>
+
+</LinearLayout>

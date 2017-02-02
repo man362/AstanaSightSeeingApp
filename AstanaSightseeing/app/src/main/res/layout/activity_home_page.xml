@@ -1,0 +1,52 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id = "@+id/toolbar"
+            android:layout_width = "match_parent"
+            android:layout_height = "?attr/actionBarSize"
+            android:background = "@color/colorPrimary"
+            />
+
+        <com.miguelcatalan.materialsearchview.MaterialSearchView
+            android:id = "@+id/searchView"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            app:searchBackground="@color/colorPrimary"
+            app:searchSuggestionBackground="@color/colorPrimary"
+            app:searchCloseIcon="@drawable/ic_action_navigation_close_inverted"
+            app:searchBackIcon="@drawable/ic_action_navigation_arrow_back_inverted"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+
+
+
+
+            />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/llPlacesContainer">
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fastScrollEnabled="true"
+            android:id="@+id/lvPlacesList"
+            android:scrollingCache="false"
+            />
+    </LinearLayout>
+
+</LinearLayout>
