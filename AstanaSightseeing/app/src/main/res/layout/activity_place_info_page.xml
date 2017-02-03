@@ -13,98 +13,108 @@ android:weightSum="1">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:weightSum="1">
 
             <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:text="tvPlaceName"
+            android:text="@string/PlaceName"
             android:ems="10"
-            android:layout_above="@+id/slider"
-            android:layout_centerHorizontal="true"
             android:id="@+id/tvPlaceName"
             android:textStyle="bold"
-            android:textSize="25dp"
+            android:textSize="30sp"
             android:gravity="center_vertical|center_horizontal"
-            android:layout_marginTop="20dp" />
+            android:layout_marginTop="20dp"
+                android:fontFamily="cursive" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:text="5 photos"
+                android:text="@string/PhotoCount"
                 android:ems="10"
-                android:textColor="@color/colorPrimary"
                 android:id="@+id/photoNumer"
                 android:gravity="center_vertical|center_horizontal"
-                android:layout_alignTop="@+id/slider"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginTop="10dp" />
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="193dp"
-                custom:srcCompat="@drawable/baiterek_pic"
-                android:id="@+id/imageView"
-                android:layout_marginTop="20dp"
-                android:layout_weight="0.36"
-                android:scaleType="centerCrop"
-                />
+                android:layout_marginTop="10dp"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:fontFamily="cursive"
+                android:textSize="18sp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="75dp">
+                android:layout_height="wrap_content"
+                tools:ignore="UselessParent">
 
-                <View
+                <com.daimajia.slider.library.SliderLayout
+                    android:id="@+id/slider"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/theme_divider" />
-
-                <TextView
-                    android:text="Too Baiterek"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView2"
+                    custom:pager_animation="Accordion"
+                    custom:auto_cycle="true"
+                    custom:indicator_visibility="visible"
+                    custom:pager_animation_span="1100"
+                    android:layout_height="300dp"
+                    android:layout_marginTop="14dp"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="11dp" />
+                    android:layout_alignParentStart="true" >
 
-                <TextView
-                    android:text="monument"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView5"
-                    android:layout_centerVertical="true"
-                    android:layout_alignLeft="@+id/textView2"
-                    android:layout_alignStart="@+id/textView2" />
+                </com.daimajia.slider.library.SliderLayout>
 
-                <TextView
-                    android:text="Astana, Kazakhstan"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView4"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignLeft="@+id/textView5"
-                    android:layout_alignStart="@+id/textView5" />
             </RelativeLayout>
 
             <TextView
-                android:text="History"
+                android:text="@string/HistoryLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView6" />
+                android:id="@+id/tvHistoryLabel"
+                android:fontFamily="serif"
+                android:textSize="24sp"
+                android:textStyle="normal|bold"
+                android:textAllCaps="false"
+                android:layout_marginTop="20dp" />
+
+            <TextView
+                android:text="@string/bayterek_history"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvHistory"
+                android:layout_weight="1.53"
+                android:textAppearance="@style/TextAppearance.FontPath"
+                android:fontFamily="serif"
+                android:textSize="14sp"
+                android:layout_marginTop="15dp" />
+
+            <TextView
+                android:text="@string/LocationLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView"
+                android:textStyle="normal|bold"
+                android:textSize="24sp"
+                android:fontFamily="serif" />
+
+            <com.google.android.gms.maps.MapView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:map="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/mapView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                map:uiCompass="true"
+                map:zOrderOnTop="true"
+                map:uiZoomControls="true"
+                android:background="#00000000" />
+
 
         </LinearLayout>
+
+
 
 </ScrollView>
 
 
 <!--
+ android:textAppearance="@style/TextAppearance.FontPath"
   <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
