@@ -22,7 +22,9 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import org.w3c.dom.Text;
 
@@ -80,7 +82,7 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
 
         // Gets to GoogleMap from the MapView and does initialization stuff
         mapView.getMapAsync(PlaceInfoPage.this);
-        // Log.i(TAG, "View created");
+
     }
 
 
@@ -107,7 +109,10 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
     @Override
     public void onMapReady(GoogleMap map) {
 //DO WHATEVER YOU WANT WITH GOOGLEMAP
-        map.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+
+
+
+        map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
@@ -118,10 +123,47 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
-        map.setMyLocationEnabled(true);
+        //map.setMyLocationEnabled(true);
+        map.getUiSettings().setMyLocationButtonEnabled(false);
         map.setTrafficEnabled(true);
         map.setIndoorEnabled(true);
         map.setBuildingsEnabled(true);
         map.getUiSettings().setZoomControlsEnabled(true);
+
+        // For dropping a marker at a point on the Map
+        LatLng sydney = new LatLng(51.128300, 71.430500);
+        map.addMarker(new MarkerOptions().position(sydney).title("Marker Title").snippet("Marker Description"));
+
+        // For zooming automatically to the location of the marker
+        CameraPosition cameraPosition = new CameraPosition.Builder().target(sydney).zoom(15).build();
+        map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
     }
+
+
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        mapView.onResume();
     }
+
+    @Override
+    public final void onDestroy()
+    {
+        mapView.onDestroy();
+        super.onDestroy();
+    }
+
+    @Override
+    public final void onLowMemory()
+    {
+        mapView.onLowMemory();
+        super.onLowMemory();
+    }
+
+    @Override
+    public final void onPause(){
+        mapView.onPause();
+        super.onPause();
+    }
+}
