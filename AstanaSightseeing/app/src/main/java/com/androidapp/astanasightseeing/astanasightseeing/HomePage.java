@@ -1,5 +1,6 @@
 package com.androidapp.astanasightseeing.astanasightseeing;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,6 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
@@ -21,29 +24,22 @@ public class HomePage extends AppCompatActivity {
     MaterialSearchView materialSearchView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Material Search");
-        toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
         materialSearchView = (MaterialSearchView) findViewById(R.id.searchView);
+        final ListView lvPlacesList = (ListView)findViewById(R.id.lvPlacesList);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        final ListView lv = (ListView)findViewById(R.id.lvPlacesList);
-        final List<Place> mPlaceList = new ArrayList<>();
-        mPlaceList.add(new Place("0", "Bayterek ", R.drawable.baiterek_pic));
-        mPlaceList.add(new Place("1", "Hazret Sultn", R.drawable.hazret_sultan_pic));
-        mPlaceList.add(new Place("2", "Khan Shatyr", R.drawable.khan_shatyr_pic));
-        mPlaceList.add(new Place("3", "Nur Astana", R.drawable.nur_astana_pic));
-        mPlaceList.add(new Place("4", "Nurly Zhol", R.drawable.nurly_zhol_pic));
+        //Set/Change Action Bar
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("AstanaGuide");
+        toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
 
+        final List<Place> mPlaceList = Utility.populateTheList();
         adapter = new PlacesListAdapter(getApplicationContext(), mPlaceList);
-
-        lv.setAdapter(adapter);
-
-
+         lvPlacesList.setAdapter(adapter);
 
 
         materialSearchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener(){
@@ -55,17 +51,11 @@ public class HomePage extends AppCompatActivity {
 
             @Override
             public void onSearchViewClosed() {
-                final ListView lv = (ListView)findViewById(R.id.lvPlacesList);
-                final List<Place> mPlaceList = new ArrayList<>();
-                mPlaceList.add(new Place("0", "Bayterek ", R.drawable.baiterek_pic));
-                mPlaceList.add(new Place("1", "Hazret Sultn", R.drawable.hazret_sultan_pic));
-                mPlaceList.add(new Place("2", "Khan Shatyr", R.drawable.khan_shatyr_pic));
-                mPlaceList.add(new Place("3", "Nur Astana", R.drawable.nur_astana_pic));
-                mPlaceList.add(new Place("4", "Nurly Zhol", R.drawable.nurly_zhol_pic));
+                final List<Place> mPlaceList = Utility.populateTheList();
 
                 adapter = new PlacesListAdapter(getApplicationContext(), mPlaceList);
 
-                lv.setAdapter(adapter);
+                lvPlacesList.setAdapter(adapter);
             }
         });
 
@@ -85,25 +75,37 @@ public class HomePage extends AppCompatActivity {
                     List<Place> listFound = new ArrayList<>();
                     for(Place p: mPlaceList){
 
-                        System.out.println("Item ... " + p.placeName + " newText: " + newText);
                         if(Pattern.compile(Pattern.quote(newText), Pattern.CASE_INSENSITIVE).matcher(p.placeName).find()){
-                            System.out.println("Contains ... ");
                             listFound.add(p);
+
                         }
                     }
                     adapter = new PlacesListAdapter(getApplicationContext(), listFound);
+                    lvPlacesList.setAdapter(adapter);
 
-                    lv.setAdapter(adapter);
                 }else{
 
                     adapter = new PlacesListAdapter(getApplicationContext(), mPlaceList);
-
-                    lv.setAdapter(adapter);
+                    lvPlacesList.setAdapter(adapter);
                 }
                 return true;
             }
         });
+
+         lvPlacesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+             @Override
+             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                 System.out.println("position: " + mPlaceList.get(position).getPlaceId());
+                 String chosenPlaceName = mPlaceList.get(position).getPlaceName();
+                 Intent intent = new Intent(HomePage.this, PlaceInfoPage.class);
+                 intent.putExtra("chosenPlaceName",chosenPlaceName);
+                 startActivity(intent);
+             }
+         });
+
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -113,4 +115,8 @@ public class HomePage extends AppCompatActivity {
         materialSearchView.setMenuItem(item);
         return super.onCreateOptionsMenu(menu);
     }
+
+
+
+
 }

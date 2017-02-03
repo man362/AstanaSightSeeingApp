@@ -4,7 +4,7 @@
     <color name="theme_primary_dark">#1976D2</color>
     <color name="theme_primary_light">#BBDEFB</color>
 
-    <color name="theme_background">#FFFFFF</color>
+    <color name="theme_background">#ffffff</color>
     <color name="theme_background_inverse">#212121</color>
 
     <color name="theme_accent_1">#212121</color>
@@ -16,5 +16,5 @@
     <color name="theme_primary_text_inverted">#ffffff</color>
     <color name="theme_secondary_text_inverted">#8affffff</color>
     <color name="theme_icons">#FFFFFF</color>
-    <color name="theme_divider">#B6B6B6</color>
+    <color name="theme_divider">#b6b6b6</color>
 </resources>
