@@ -23,6 +23,6 @@
     <string name="LocationLabel">Location</string>
     <string name="PlaceName">PlaceName</string>
 
-    <string name="google_maps_key" translatable="false" templateMergeStrategy="preserve">AIzaSyCyB3dm7Is57wTwRvQ5VJCVKCCqSyG79mo</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCyB3dm7Is57wTwRvQ5VJCVKCCqSyG79mo</string>
 
 </resources>

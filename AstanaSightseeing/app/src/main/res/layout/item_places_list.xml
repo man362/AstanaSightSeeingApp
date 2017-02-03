@@ -9,18 +9,17 @@
         android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="0.03">
+        android:layout_weight="0.00">
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="206dp"
             app:srcCompat="@drawable/baiterek_pic"
             android:id="@+id/ivPlacePic"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:scaleType="centerCrop"
 
-            />
+            android:layout_height="230dp" />
 
         <View
 
@@ -36,7 +35,7 @@
             android:text="  Place Name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
+            android:textSize="24sp"
             android:textColorLink="@color/colorAccent"
             android:textColor="@color/colorAccent"
             android:background="@color/blackTransparentColor"

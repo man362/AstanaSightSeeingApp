@@ -71,7 +71,8 @@ android:weightSum="1">
                 android:textSize="24sp"
                 android:textStyle="normal|bold"
                 android:textAllCaps="false"
-                android:layout_marginTop="20dp" />
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="5dp" />
 
             <TextView
                 android:text="@string/bayterek_history"
@@ -82,7 +83,8 @@ android:weightSum="1">
                 android:textAppearance="@style/TextAppearance.FontPath"
                 android:fontFamily="serif"
                 android:textSize="14sp"
-                android:layout_marginTop="15dp" />
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="5dp" />
 
             <TextView
                 android:text="@string/LocationLabel"
@@ -91,7 +93,8 @@ android:weightSum="1">
                 android:id="@+id/tvLocationLabel"
                 android:textStyle="normal|bold"
                 android:textSize="24sp"
-                android:fontFamily="serif" />
+                android:fontFamily="serif"
+                android:layout_marginLeft="5dp" />
 
             <com.google.android.gms.maps.MapView
                 xmlns:android="http://schemas.android.com/apk/res/android"
@@ -114,7 +117,8 @@ android:weightSum="1">
                 android:layout_marginTop="20dp"
                 android:textSize="24sp"
                 android:textStyle="normal|bold"
-                android:fontFamily="serif" />
+                android:fontFamily="serif"
+                android:layout_marginLeft="5dp" />
 
             <LinearLayout
                 android:orientation="horizontal"
