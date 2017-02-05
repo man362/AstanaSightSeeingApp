@@ -30,12 +30,30 @@ import org.w3c.dom.Text;
 
 import java.util.HashMap;
 
+import static java.lang.Double.parseDouble;
+
 public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener, OnMapReadyCallback {
 
     private SliderLayout mDemoSlider;
     TextView tvPlaceName;
+    TextView tvPlaceHistory;
+    TextView tvPlaceAddr;
+    TextView tvPlacePNum;
+    TextView tvPlaceWebAddr;
+    TextView tvPlaceWHrs;
+
     MapView mapView;
     private GoogleMap googleMap;
+
+    String pName;
+    HashMap<String, Integer> pPhotos;
+    String pHistory;
+    String pLat;
+    String pLon;
+    String pAddr;
+    String pPhoneNum;
+    String pWebAddr;
+    String pWHrs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,23 +61,44 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
         setContentView(R.layout.activity_place_info_page);
         mDemoSlider = (SliderLayout) findViewById(R.id.slider);
         tvPlaceName = (TextView) findViewById(R.id.tvPlaceName);
+        tvPlaceHistory = (TextView) findViewById(R.id.tvHistory);
+        tvPlaceAddr = (TextView) findViewById(R.id.tvMapAddress);
+        tvPlacePNum = (TextView) findViewById(R.id.tvPhoneAddress);
+        tvPlaceWebAddr = (TextView) findViewById(R.id.tvWebAddress);
+        //Whrs here int
 
-        String value = getIntent().getExtras().getString("chosenPlaceName");
-        System.out.println("Name : " + value);
-        tvPlaceName.setText(value);
+        int chosenPlaceId = getIntent().getExtras().getInt("chosenPlaceId");
+        System.out.println("Name : " + chosenPlaceId);
 
-        HashMap<String, Integer> file_maps = new HashMap<String, Integer>();
-        file_maps.put("Hannibal", R.drawable.baiterek_pic);
-        file_maps.put("Big Bang Theory", R.drawable.hazret_sultan_pic);
-        file_maps.put("House of Cards", R.drawable.khan_shatyr_pic);
-        file_maps.put("Game of Thrones", R.drawable.nur_astana_pic);
+        Place p = Utility.mPlaceList.get(chosenPlaceId);
 
-        for (String name : file_maps.keySet()) {
+        pName = p.getPlaceName();
+        pPhotos = p.getpPhotos();
+        pHistory = p.getpHistory();
+        pLat = p.getpLat();
+        pLon = p.getpLon();
+        pAddr = p.getpAddress();
+        pPhoneNum = p.getpPhoneNum();
+        pWebAddr = p.getpWebAddress();
+        pWHrs = p.getpWHrs();
+
+
+
+        tvPlaceName.setText(pName);
+        tvPlaceHistory.setText(pHistory);
+        tvPlaceAddr.setText(pAddr);
+        tvPlacePNum.setText(pPhoneNum);
+        tvPlaceWebAddr.setText(pWebAddr);
+        //PWhrs here
+
+        System.out.println("Size of the here"+pPhotos.keySet().size());
+
+        for (String name : pPhotos.keySet()) {
             TextSliderView textSliderView = new TextSliderView(this);
             // initialize a SliderLayout
             textSliderView
                     .description(name)
-                    .image(file_maps.get(name))
+                    .image(pPhotos.get(name))
                     .setScaleType(BaseSliderView.ScaleType.CenterCrop)
                     .setOnSliderClickListener(this);
 
@@ -70,6 +109,7 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
 
             mDemoSlider.addSlider(textSliderView);
         }
+
         mDemoSlider.setPresetTransformer(SliderLayout.Transformer.Default);
         mDemoSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
         mDemoSlider.setCustomAnimation(new DescriptionAnimation());
@@ -82,6 +122,8 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
 
         // Gets to GoogleMap from the MapView and does initialization stuff
         mapView.getMapAsync(PlaceInfoPage.this);
+
+
 
     }
 
@@ -131,11 +173,11 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
         map.getUiSettings().setZoomControlsEnabled(true);
 
         // For dropping a marker at a point on the Map
-        LatLng sydney = new LatLng(51.128300, 71.430500);
-        map.addMarker(new MarkerOptions().position(sydney).title("Marker Title").snippet("Marker Description"));
+        LatLng marker = new LatLng(Double.parseDouble(pLat),  Double.parseDouble(pLon));
+        map.addMarker(new MarkerOptions().position(marker).title("Marker Title").snippet("Marker Description"));
 
         // For zooming automatically to the location of the marker
-        CameraPosition cameraPosition = new CameraPosition.Builder().target(sydney).zoom(15).build();
+        CameraPosition cameraPosition = new CameraPosition.Builder().target(marker).zoom(15).build();
         map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
     }
 

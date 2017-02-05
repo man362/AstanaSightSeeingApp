@@ -10,7 +10,8 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.androidapp.astanasightseeing.astanasightseeing.LanguagePage"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:background="@color/cast_libraries_material_featurehighlight_outer_highlight_default_color">
 
     <LinearLayout
         android:orientation="vertical"
@@ -33,9 +34,10 @@
             android:gravity="center_vertical|center_horizontal"
             android:layout_weight="0.04"
             android:layout_marginLeft="5dp"
-            android:textSize="18sp"
+            android:textSize="24sp"
             android:layout_height="50dp"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="10dp"
+            android:textColor="@color/theme_icons" />
 
         <ImageView
             android:layout_width="match_parent"
@@ -53,16 +55,17 @@
             android:layout_weight="0.08"
             android:gravity="center_vertical|center_horizontal"
             android:layout_marginLeft="5dp"
-            android:textSize="18sp"
-            android:layout_height="32dp" />
+            android:textSize="24sp"
+            android:layout_height="32dp"
+            android:textColor="@color/theme_icons" />
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="37dp"
             app:srcCompat="@drawable/english_flag"
             android:id="@+id/iv_english_lang"
             android:layout_marginTop="20dp"
-            android:layout_weight="0.04" />
+            android:layout_weight="0.04"
+            android:layout_height="32dp" />
 
         <TextView
             android:text="English"
@@ -72,8 +75,9 @@
             android:layout_weight="0.04"
             android:gravity="center_vertical|center_horizontal"
             android:layout_marginLeft="5dp"
-            android:textSize="18sp"
-            android:layout_height="37dp" />
+            android:textSize="24sp"
+            android:layout_height="37dp"
+            android:textColor="@color/theme_icons" />
 
     </LinearLayout>
 

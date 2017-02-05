@@ -37,8 +37,8 @@ public class HomePage extends AppCompatActivity {
         getSupportActionBar().setTitle("AstanaGuide");
         toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
 
-        final List<Place> mPlaceList = Utility.populateTheList();
-        adapter = new PlacesListAdapter(getApplicationContext(), mPlaceList);
+         Utility.populateTheList(Utility.mPlaceList,HomePage.this);
+        adapter = new PlacesListAdapter(getApplicationContext(), Utility.mPlaceList);
          lvPlacesList.setAdapter(adapter);
 
 
@@ -51,9 +51,9 @@ public class HomePage extends AppCompatActivity {
 
             @Override
             public void onSearchViewClosed() {
-                final List<Place> mPlaceList = Utility.populateTheList();
+                Utility.populateTheList(Utility.mPlaceList,HomePage.this);
 
-                adapter = new PlacesListAdapter(getApplicationContext(), mPlaceList);
+                adapter = new PlacesListAdapter(getApplicationContext(), Utility.mPlaceList);
 
                 lvPlacesList.setAdapter(adapter);
             }
@@ -73,7 +73,7 @@ public class HomePage extends AppCompatActivity {
 
                 if(newText != null && !newText.isEmpty()){
                     List<Place> listFound = new ArrayList<>();
-                    for(Place p: mPlaceList){
+                    for(Place p: Utility.mPlaceList){
 
                         if(Pattern.compile(Pattern.quote(newText), Pattern.CASE_INSENSITIVE).matcher(p.placeName).find()){
                             listFound.add(p);
@@ -85,7 +85,7 @@ public class HomePage extends AppCompatActivity {
 
                 }else{
 
-                    adapter = new PlacesListAdapter(getApplicationContext(), mPlaceList);
+                    adapter = new PlacesListAdapter(getApplicationContext(), Utility.mPlaceList);
                     lvPlacesList.setAdapter(adapter);
                 }
                 return true;
@@ -95,10 +95,10 @@ public class HomePage extends AppCompatActivity {
          lvPlacesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
              @Override
              public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                 System.out.println("position: " + mPlaceList.get(position).getPlaceId());
-                 String chosenPlaceName = mPlaceList.get(position).getPlaceName();
+                 //System.out.println("position: " + mPlaceList.get(position).getPlaceId());
+                 int chosenPlaceId = Utility.mPlaceList.get(position).getPlaceId();
                  Intent intent = new Intent(HomePage.this, PlaceInfoPage.class);
-                 intent.putExtra("chosenPlaceName",chosenPlaceName);
+                 intent.putExtra("chosenPlaceId", chosenPlaceId);
                  startActivity(intent);
              }
          });
