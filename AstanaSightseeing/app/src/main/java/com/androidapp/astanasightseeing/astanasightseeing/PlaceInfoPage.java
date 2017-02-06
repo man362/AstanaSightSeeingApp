@@ -40,6 +40,7 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
 
     Button btnBack;
     private SliderLayout mDemoSlider;
+    TextView tvPhotoCount;
     TextView tvPlaceName;
     TextView tvPlaceHistory;
     TextView tvPlaceAddr;
@@ -80,6 +81,7 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
         tvPlacePNum = (TextView) findViewById(R.id.tvPhoneAddress);
         tvPlaceWebAddr = (TextView) findViewById(R.id.tvWebAddress);
         tvPlaceWHrs = (TextView) findViewById(R.id.tvWHrs);
+        tvPhotoCount = (TextView) findViewById(R.id.tvPhotoCount);
 
         ivWebAddr = (ImageView) findViewById(R.id.ivWebAddr);
 
@@ -101,6 +103,7 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
         pWHrs = p.getpWHrs();
 
         tvPlaceName.setText(pName);
+        tvPhotoCount.setText(pPhotos.keySet().size() + " "+ getResources().getString(R.string.Photo));
         tvPlaceHistory.setText(pHistory);
         tvPlaceAddr.setText(pAddr);
         tvPlacePNum.setText(pPhoneNum);
@@ -113,11 +116,12 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
         }
         System.out.println("Size of the here"+pPhotos.keySet().size());
 
+        int i = 1;
         for (String name : pPhotos.keySet()) {
             TextSliderView textSliderView = new TextSliderView(this);
             // initialize a SliderLayout
             textSliderView
-                    .description(name)
+                    .description(getResources().getString(R.string.PhotoLabel) + " " + i++)
                     .image(pPhotos.get(name))
                     .setScaleType(BaseSliderView.ScaleType.CenterCrop)
                     .setOnSliderClickListener(this);

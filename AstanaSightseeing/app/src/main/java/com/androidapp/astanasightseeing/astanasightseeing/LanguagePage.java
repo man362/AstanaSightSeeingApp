@@ -55,6 +55,7 @@ public class LanguagePage extends AppCompatActivity {
     }
 
     void setLanguage(String chosenLang){
+        Utility.mPlaceList.clear();
         String language;
 
         switch(chosenLang){

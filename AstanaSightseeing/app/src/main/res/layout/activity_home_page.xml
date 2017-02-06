@@ -31,7 +31,14 @@
 
 
 
-            />
+            >
+
+            <Button
+                android:layout_height="match_parent"
+                android:id="@+id/btnBack"
+                android:background="@drawable/ic_action_navigation_arrow_back_inverted"
+                android:layout_width="64dp" />
+        </com.miguelcatalan.materialsearchview.MaterialSearchView>
     </RelativeLayout>
 
     <LinearLayout

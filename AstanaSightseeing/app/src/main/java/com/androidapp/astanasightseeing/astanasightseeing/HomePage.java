@@ -10,6 +10,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
@@ -22,6 +23,7 @@ public class HomePage extends AppCompatActivity {
 
     PlacesListAdapter adapter;
     MaterialSearchView materialSearchView;
+    Button btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -31,15 +33,24 @@ public class HomePage extends AppCompatActivity {
         materialSearchView = (MaterialSearchView) findViewById(R.id.searchView);
         final ListView lvPlacesList = (ListView)findViewById(R.id.lvPlacesList);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+         btnBack = (Button) findViewById(R.id.btnBack);
 
         //Set/Change Action Bar
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("AstanaGuide");
+        getSupportActionBar().setTitle("");
         toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
 
          Utility.populateTheList(Utility.mPlaceList,HomePage.this);
         adapter = new PlacesListAdapter(getApplicationContext(), Utility.mPlaceList);
          lvPlacesList.setAdapter(adapter);
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                Utility.mPlaceList.clear();
+            }
+        });
 
 
         materialSearchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener(){

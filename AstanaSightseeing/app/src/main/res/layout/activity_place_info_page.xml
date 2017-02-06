@@ -20,20 +20,22 @@ android:weightSum="1">
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
-            <Button
-                android:text=""
-                android:id="@+id/btnBack"
-                android:layout_alignParentTop="true"
-                android:layout_height="56dp"
-                android:layout_width="60dp"
-                android:background="@drawable/ic_action_navigation_arrow_back_inverted" />
-
-            <android.support.v7.widget.Toolbar
+                <android.support.v7.widget.Toolbar
                 android:id = "@+id/toolbar1"
                 android:layout_width = "match_parent"
                 android:layout_height = "?attr/actionBarSize"
                 android:background = "@color/colorPrimary"
                 />
+
+                <Button
+                    android:text=""
+                    android:id="@+id/btnBack"
+                    android:background="@drawable/ic_action_navigation_arrow_back_inverted"
+                    android:layout_width="64dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_height="56dp" />
             </RelativeLayout>
             <TextView
             android:layout_width="match_parent"
@@ -52,7 +54,7 @@ android:weightSum="1">
                 android:layout_height="wrap_content"
                 android:text="@string/PhotoCount"
                 android:ems="10"
-                android:id="@+id/photoNumer"
+                android:id="@+id/tvPhotoCount"
                 android:gravity="center_vertical|center_horizontal"
                 android:layout_marginTop="10dp"
                 android:textAppearance="@style/TextAppearance.AppCompat"
@@ -71,11 +73,11 @@ android:weightSum="1">
                     custom:auto_cycle="true"
                     custom:indicator_visibility="visible"
                     custom:pager_animation_span="1100"
-                    android:layout_height="300dp"
                     android:layout_marginTop="14dp"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true" >
+                    android:layout_alignParentStart="true"
+                    android:layout_height="320dp">
 
                 </com.daimajia.slider.library.SliderLayout>
 
