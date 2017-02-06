@@ -1,25 +1,239 @@
 <resources>
     <string name="app_name">Astana Sightseeing</string>
+    <integer-array name="arrOfPIds">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+    </integer-array>
 
-    <string name="bayterek_history">
-        The monument is meant to embody a folktale about a mythical tree of life and a magic bird of happiness: \n
-        the bird, named Samruk, had laid its egg in the crevice between two branches of a poplar tree. \n
-        The 105 m tall structure rises from a wide flat base within a raised plaza. It consists of a narrow cylindrical shaft, \n
-        surrounded by white branch-like girders that flare out near the top, supporting a gold-mirrored 22 m diameter sphere. The base contains \n
-        a ticket booth and exhibition space, with two lifts rising within the shaft to the observation deck within the \'egg\'. \n
-        Entrances to the monument are sunk below eye level, reached by stairs \n
-        from the surrounding plaza. Copied the idea from 1982 Worlds Fair Sunsphere in Knoxville, TN, USA.(266 ft. Tall) \n
-        The observation deck is 97 m above ground level, corresponding to 1997, the year that Astana became the nation\'s capital. It consists of two \n
-        levels, one with 360 degree views of Astana and beyond, with a second, higher level, reached by a flight of stairs. The top level features \n
-        a gilded hand print of the right hand of Nursultan Nazarbayev, the first President of the independent Republic of Kazakhstan, mounted in an \n
-        ornate pedestal. A plaque invites visitors to place a hand in the imprint and make a wish. Alongside the handprint, and also oriented in the direction \n
-        of the presidential palace, is a wooden sculpture of a globe and 16 radiating segments, commemorating the Congress of Leaders of World and Traditional \n
-        Religions, held several times in Astana. \n
-    </string>
-    
-    <string name="PhotoCount">40 photos</string>
-    <string name="HistoryLabel">History</string>
-    <string name="LocationLabel">Location</string>
+    <string-array name="arrOfPNames">
+        <item>Хазрет Сұлтан мешіті</item>
+        <item>«Нұр Астана» мешіті</item>
+        <item>Хан Шатыр</item>
+        <item>МЕГА Астана</item>
+        <item>Азия Парк</item>
+        <item>Астана Опера</item>
+        <item>Бәйтерек монументі</item>
+        <item>Думан</item>
+        <item>Бейбітшілік және келісім сарайы</item>
+        <item>Халықаралық мұражай</item>
+        <item>«Алау» мұз айдыны</item>
+        <item>Керуен СОО</item>
+        <item>Астана Арена</item>
+    </string-array>
+
+    <integer-array name="arrOfPPics_main">
+        <item>@drawable/hazret_sultan_pic</item>
+        <item>@drawable/nur_astana_pic</item>
+        <item>@drawable/khan_shatyr_pic</item>
+        <item>@drawable/mega_astana</item>
+        <item>@drawable/asia_park</item>
+        <item>@drawable/astana_opera</item>
+        <item>@drawable/baiterek_monument</item>
+        <item>@drawable/duman_astana</item>
+        <item>@drawable/piramida_astana</item>
+        <item>@drawable/muzei_astana</item>
+        <item>@drawable/alau_astana</item>
+        <item>@drawable/keruen_astana</item>
+        <item>@drawable/astana_arena</item>
+    </integer-array>
+
+
+    <string-array name="arrOfPHistories">
+        <item>
+            Хазрет Сұлтан мешіті - Рухани орын 13 га. жерді алып жатқан аумақта\n
+            орналасқан, мешіттің жалпы аумағы 17, 7 мың шаршы метрді құрайды.\n
+            Мешіт жобасы қазақтың дәстүрлі ою-өрнектері мен ұлттық нақыштағы\n
+            сәндік элементтері қолданыла отырып, классикалық ислам үлгісінде\n
+            орындалған. 2012 жылдың 6 шілде күні 12:30-да Хазрет Сұлтан мешітің\n
+            салтанатты түрде ашылуы өтті. Орта Азияда көлемі бойынша\n
+            Түркіменстандағы «Түркіменбашы рухы» мешітінен кейін 2-орында.\n
+        </item>
+        <item>
+            «Нұр Астана» орталық мешіті 2005 жылғы 22 наурызда пайдалануға берілді.\n
+            Жалпы сыйымдылығы – 10 000 адам. Мешіттің биіктігі 63 метрлік төрт\n
+            мұнарасы бар. Мешіт орналасқан жердің көлемі 6,7 гектар. Жалпы алаңы\n
+            3930 шм.\n
+        </item>
+        <item>
+            «Хан Шатыр»- ірі сауда орталығы. 2010 жылдың 6-шілдесінде ашылды.\n
+            Жалпы көлемі 127 мың ш.м. Хан Штырда супермаркет, отбасы паркі, кафе\n
+            және мейрамхана , кинотеатр, спорт залы, аквапарк, киім-кешек бутиктері\n
+            бар. Және де 700 орынға есептелген көлік тұрағы бар.\n
+        </item>
+        <item>
+            МЕГА Астана – ірі сауда орталығы. 2007 жылдың 25-қазанында\n
+            ашылды.Жалпы көлемі 34500 ш.м. Мега-да 87 бутик, гипермаркет, балалар\n
+            ойын-сауық орталығы, кинотеатр, кафе мен мейрамхана бар. Және 510\n
+            орынға есептелген көлік тұрағы бар.\n
+        </item>
+        <item>
+            Азия Парк- ірі сауда орталығы. 2009 жылдың 17-желтоқсанда ашылды.Азия\n
+            Парк-та 87 бутик, «Алма» супермаркет, балалар ойын-сауық орталығы,\n
+            «Арман» кинотеатр, фитнес клубы «Fitness First», кафе мен мейрамхана\n
+            бар,балалар универмагы «Золотой ключик».
+        </item>
+        <item>
+            Астана Опера – Ұлттық академиялық опера театр және балет. 2013 жылдың\n
+            21-маусымында ашылды. Театрдың көлемі 9 гектар. Ғимараттың көлемі 64\n
+            мың ш.м. Соның ішінде 3 мың ш.м. сцена құрайды.\n
+        </item>
+        <item>
+            Бәйтерек монументі – Биіктігі 97 метрді құрайды, шармен 105 метр. Шардың\n
+            диаметрі 22 метр. Монумент ел басы Н.Ә. Назарбаевтің ұсынысымен\n
+            салынған, оның мәні: 1997 ж. Алматыдан Астанага астананың көшкендігінің\n
+            белгісі. Ортасында 17 діннің Бірлестігінің белгісі ретінде ағаш ғаламшары\n
+            орналасқан. 2002 жылдың 30-тамызында ашылды.
+        </item>
+        <item>
+            «Думан»- қазіргі кезде жалғыз океанариум болып саналады. Океанариумның\n
+            суының көлемі 3 млн литр. Оны құруға 120 тонна теңіз тұзы қолданылды.\n
+            Океанариумда 2000 әртүрлі теңіз тұрғындары бар. Думанда сувенирлер\n
+            магазині, кафе және зоопарк- экзотариум. 2003 жылдың май айында ашылды.
+        </item>
+        <item>
+            Бейбітшілік және келісім сарайы- пирамида арнайы «Діндердің\n
+            басшыларының кеңесін» өткізуге құрылған. Пирамидада 1500 адамға\n
+            есептелген концерт залы бар. Оның көлемі 28 мың ш.м. Көркем көрмелері\n
+            ұйымдастырылады. 2006 жылдың 1-қыркүйегінде ашылды.
+        </item>
+        <item>
+            Халықаралық мұражай- 2014 жылдың 2-маусымында ашылды. Әлемде ең\n
+            үлкен мұражай болып саналады. Жер көлемі 9,9 гектар. Ғимараттың көлемі\n
+            74 мың ш.м.
+        </item>
+        <item>
+            «Алау» мұз айдыны- жабық коньки тебу алаңы. Спортты кешен коньки тебу,\n
+            фигурлы сырғанау, хоккей жарысын өткізуге арналған. Мұз айдыны 400 м\n
+            құрайды. Трибунада 7500 орын. 2011 жылда ашылды.
+        </item>
+        <item>
+            «Керуен» СОО- ірі сауда орталығы. 2009 жылдың 15-шілдесінде ашылды. Жалпы көлемі 58 мың\n
+            ш.м. Керуенде магазиндер, гипермаркет, кинотеатр, кафе және мейрамхана бар. Көлік тұрағы\n
+            450 орынға есептелген.
+        </item>
+        <item>
+            «Астана Арена»- 30000 көрерменге есептелген жабық алаң. Алғашында\n
+            Қажымұқан алаңы деп аталды, кейін Астана Арена болып аталды. Алаң\n
+            футболға арналған , бірақ басқа да спорт түрлерінің жарыстарын өткізуге де\n
+            арналған. Тіпті жұлдыздардың әуен кешін де тамашалауға болады.
+        </item>
+    </string-array>
+
+
+    <string-array name="arrOfPLats">
+        <item>51.125488</item>
+        <item>51.126582</item>
+        <item>51.132539</item>
+        <item>51.145503</item>
+        <item>51.128233</item>
+        <item>51.135319</item>
+        <item>51.128300</item>
+        <item>51.149000</item>
+        <item>51.123135</item>
+        <item>51.118491</item>
+        <item>51.104892</item>
+        <item>51.128128</item>
+        <item>51.108224</item>
+        <item></item>
+    </string-array>
+
+    <string-array name="arrOfPLons">
+        <item>71.471935</item>
+        <item>71.415737</item>
+        <item>71.403822</item>
+        <item>71.413648</item>
+        <item>71.411798</item>
+        <item>71.410650</item>
+        <item>71.430500</item>
+        <item>71.415489</item>
+        <item>71.463532</item>
+        <item>71.469652</item>
+        <item>71.405066</item>
+        <item>71.425365</item>
+        <item>71.402636</item>
+        <item></item>
+    </string-array>
+
+    <string-array name="arrOfPAddr">
+        <item>Тәуелсіздік даңғылы, 48, Астана</item>
+        <item>Қабанбай батыр көшесі, 36.</item>
+        <item>Тұран даңғылы</item>
+        <item>Қорғалжын ш. 1</item>
+        <item>Кабанбай Батыр даңғылы, 21</item>
+        <item>Қонаев көшесі</item>
+        <item>Левобережье, 1</item>
+        <item>Қорғалжын ш.</item>
+        <item>Тауелсіздік даңғылы, 57 </item>
+        <item>Тауелсіздік даңғылы, 54</item>
+        <item>Кабанбай Батыр даңғылы, 47</item>
+        <item>Достық көшесі, 9</item>
+        <item>Тұран даңғылы, 48</item>
+    </string-array>
+
+    <string-array name="arrOfPPhoneAddr">
+        <item>+7 7172 42 24 55, +7 7172 42 41 77</item>
+        <item>8 (7172) 44-58-48, 44-61-65 </item>
+        <item>+7(7172) 574-941, -942.</item>
+        <item>8 (717) 279 0990</item>
+        <item>8 (7172) 97 87 67</item>
+        <item>+7 7172 709 600; +7 7172 709 612</item>
+        <item>+7 (7172) 44 64 72</item>
+        <item>8 (717) 279 1500</item>
+        <item>8 (717) 274 4744</item>
+        <item>8 (717) 291 9035</item>
+        <item>+7 (7172) 706-722, 706-802</item>
+        <item> +7 (7172) 79 55 20, 79 55 22</item>
+        <item>8 (717) 270 2662</item>
+    </string-array>
+
+    <string-array name="arrOfPWebAddr">
+        <item>www.muslim.kz</item>
+        <item>nurastana-05@mail.ru</item>
+        <item>None</item>
+        <item>None</item>
+        <item>None</item>
+        <item>None</item>
+        <item>None</item>
+        <item>None</item>
+        <item>None</item>
+        <item>None</item>
+        <item>None</item>
+        <item>None</item>
+        <item>None</item>
+    </string-array>
+
+
+    <string-array name="arrOfPHrs">
+        <item>10.00-18.00</item>
+        <item>10.00-18.00</item>
+        <item>10.00-22.00</item>
+        <item>10.00-22.00</item>
+        <item>10.00-22.00</item>
+        <item>10.00-18.45</item>
+        <item>10.00-21.00</item>
+        <item>10.30-20.30</item>
+        <item>10.00-18.00</item>
+        <item>10.00-18.00</item>
+        <item>9.00-23.00</item>
+        <item>10.00-22.00</item>
+        <item>09:30-19:00</item>
+    </string-array>
+
+    <string name="PhotoCount">5 сурет</string>
+    <string name="HistoryLabel">Тарих</string>
+    <string name="LocationLabel">Орналасқан жері</string>
+    <string name="Contacts">Байланыс</string>
     <string name="PlaceName">PlaceName</string>
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCyB3dm7Is57wTwRvQ5VJCVKCCqSyG79mo</string>
 

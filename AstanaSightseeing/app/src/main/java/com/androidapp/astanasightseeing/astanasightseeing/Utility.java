@@ -44,7 +44,7 @@ public class Utility {
         pWebAddressArr = context.getResources().getStringArray(R.array.arrOfPWebAddr);
         pWHrsArr = context.getResources().getStringArray(R.array.arrOfPHrs);
 
-        for(int i = 0; i < 12; i++){
+        for(int i = 0; i <=12; i++){
             int pID = pIdArr[i];
             String pName = pNameArr[i];
             int pImg = pImgArr.getResourceId(i,-1);
@@ -57,8 +57,6 @@ public class Utility {
             String pPhoneNum = pPhoneNumArr[i];
             String pWebAddress = pWebAddressArr[i];
             String pWHrs = pWHrsArr[i];
-
-            System.out.println("check this one:" + pHistory);
 
             mPlaceList.add(new Place(pID, pName, pImg, pPhotosMap,pHistory,pLat,pLon,pAddress,pPhoneNum,pWebAddress,pWHrs));
             //mPlaceList.add(new Place(pID, pName, pImg));

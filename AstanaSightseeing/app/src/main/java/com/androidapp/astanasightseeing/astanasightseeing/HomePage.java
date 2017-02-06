@@ -117,6 +117,11 @@ public class HomePage extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onBackPressed() {
+     super.onBackPressed();
+        Utility.mPlaceList.clear();
+    }
 
 
 }

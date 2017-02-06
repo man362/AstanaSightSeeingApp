@@ -18,9 +18,9 @@
 
     <string-array name="arrOfPNames">
         <item>«Хазрет Султан» мечеть</item>
-        <item>Нур Астана» мечеть</item>
+        <item>«Нур Астана» мечеть</item>
         <item>Хан Шатыр</item>
-        <item>Мега Астана</item>
+        <item>МЕГА Астана</item>
         <item>ТРК Азия Парк</item>
         <item>Астана Опера</item>
         <item>Монумент Байтерек</item>
@@ -28,7 +28,7 @@
         <item>Дворец мира и согласия</item>
         <item>Национальный музей</item>
         <item>Ледовый Дворец «Алау»</item>
-        <item>«ТРК Керуен</item>
+        <item>ТРК Керуен</item>
         <item>Астана Арена</item>
     </string-array>
 
@@ -42,6 +42,7 @@
         <item>@drawable/baiterek_monument</item>
         <item>@drawable/duman_astana</item>
         <item>@drawable/piramida_astana</item>
+        <item>@drawable/muzei_astana</item>
         <item>@drawable/alau_astana</item>
         <item>@drawable/keruen_astana</item>
         <item>@drawable/astana_arena</item>
@@ -142,13 +143,13 @@
         <item>51.132539</item>
         <item>51.145503</item>
         <item>51.128233</item>
-        <item>51.128233</item>
         <item>51.135319</item>
         <item>51.128300</item>
         <item>51.149000</item>
         <item>51.123135</item>
         <item>51.118491</item>
         <item>51.104892</item>
+        <item>51.128128</item>
         <item>51.108224</item>
         <item></item>
     </string-array>
@@ -159,20 +160,20 @@
         <item>71.403822</item>
         <item>71.413648</item>
         <item>71.411798</item>
-        <item>71.411798</item>
         <item>71.410650</item>
         <item>71.430500</item>
         <item>71.415489</item>
         <item>71.463532</item>
         <item>71.469652</item>
         <item>71.405066</item>
+        <item>71.425365</item>
         <item>71.402636</item>
         <item></item>
     </string-array>
 
     <string-array name="arrOfPAddr">
         <item>пр. Тауелсыздык, 48, Астана</item>
-        <item>Қабанбай батыр көшесі, 36.</item>
+        <item>ул. Кабанбай Батыр 36.</item>
         <item>Пр. Туран 37</item>
         <item>Коргалжинское ш. 1</item>
         <item>пр. Кабанбай Батыра, 21</item>
@@ -183,7 +184,7 @@
         <item>Пр Тауелсиздик 54</item>
         <item>Пр Кабанбай Батыра 47</item>
         <item>Ул Достык 9</item>
-        <item>Тұран даңғылы 48</item>
+        <item>Пр. Туран 48</item>
     </string-array>
 
     <string-array name="arrOfPPhoneAddr">
@@ -205,17 +206,17 @@
     <string-array name="arrOfPWebAddr">
         <item>www.muslim.kz</item>
         <item>nurastana-05@mail.ru</item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>None</item>
+        <item>None</item>
+        <item>None</item>
+        <item>None</item>
+        <item>None</item>
+        <item>None</item>
+        <item>None</item>
+        <item>None</item>
+        <item>None</item>
+        <item>None</item>
+        <item>None</item>
     </string-array>
 
 

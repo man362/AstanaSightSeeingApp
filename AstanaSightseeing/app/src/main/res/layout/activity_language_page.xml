@@ -28,7 +28,7 @@
             android:layout_height="32dp" />
 
         <TextView
-            android:text="Kazakh"
+            android:text="Қазақша"
             android:layout_width="match_parent"
             android:id="@+id/tvKazakhLang"
             android:gravity="center_vertical|center_horizontal"
@@ -48,7 +48,7 @@
             android:layout_weight="0.04" />
 
         <TextView
-            android:text="Russian"
+            android:text="Руский"
             android:layout_width="match_parent"
             android:id="@+id/tvRussianLang"
             android:layout_marginTop="10dp"

@@ -16,6 +16,25 @@ android:weightSum="1">
             android:orientation="vertical"
             android:weightSum="1">
 
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            <Button
+                android:text=""
+                android:id="@+id/btnBack"
+                android:layout_alignParentTop="true"
+                android:layout_height="56dp"
+                android:layout_width="60dp"
+                android:background="@drawable/ic_action_navigation_arrow_back_inverted" />
+
+            <android.support.v7.widget.Toolbar
+                android:id = "@+id/toolbar1"
+                android:layout_width = "match_parent"
+                android:layout_height = "?attr/actionBarSize"
+                android:background = "@color/colorPrimary"
+                />
+            </RelativeLayout>
             <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -75,7 +94,7 @@ android:weightSum="1">
                 android:layout_marginLeft="5dp" />
 
             <TextView
-                android:text="@string/bayterek_history"
+                android:text="T"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvHistory"
@@ -151,11 +170,19 @@ android:weightSum="1">
                     <ImageView
                         android:layout_width="35dp"
                         android:layout_height="38dp"
-                        custom:srcCompat="@mipmap/image_web_address"
-                        android:id="@+id/ivWeb"
+                        custom:srcCompat="@mipmap/image_clock"
+                        android:id="@+id/ivWHrs"
                         android:layout_weight="1"
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="5dp" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        custom:srcCompat="@mipmap/image_web_address"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/ivWebAddr" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -184,12 +211,22 @@ android:weightSum="1">
                         android:gravity="left|center_vertical|center_horizontal" />
 
                     <TextView
+                        android:text="9:00 - 10:00"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        android:id="@+id/tvWHrs"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:gravity="left|center_vertical|center_horizontal" />
+
+                    <TextView
                         android:text="baiterek.kz"
                         android:layout_width="match_parent"
                         android:layout_height="38dp"
                         android:id="@+id/tvWebAddress"
-                        android:layout_marginTop="10dp"
+                        android:layout_weight="0.23"
                         android:layout_marginLeft="5dp"
+                        android:layout_marginTop="10dp"
                         android:gravity="left|center_vertical|center_horizontal" />
                 </LinearLayout>
             </LinearLayout>

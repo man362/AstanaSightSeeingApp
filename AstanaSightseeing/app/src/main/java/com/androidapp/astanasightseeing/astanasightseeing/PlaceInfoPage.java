@@ -1,12 +1,16 @@
 package com.androidapp.astanasightseeing.astanasightseeing;
 
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +38,7 @@ import static java.lang.Double.parseDouble;
 
 public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener, OnMapReadyCallback {
 
+    Button btnBack;
     private SliderLayout mDemoSlider;
     TextView tvPlaceName;
     TextView tvPlaceHistory;
@@ -41,6 +46,8 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
     TextView tvPlacePNum;
     TextView tvPlaceWebAddr;
     TextView tvPlaceWHrs;
+
+    ImageView ivWebAddr;
 
     MapView mapView;
     private GoogleMap googleMap;
@@ -59,16 +66,27 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place_info_page);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar1);
+        //Set/Change Action Bar
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("");
+        btnBack = (Button) findViewById(R.id.btnBack);
+
         mDemoSlider = (SliderLayout) findViewById(R.id.slider);
         tvPlaceName = (TextView) findViewById(R.id.tvPlaceName);
         tvPlaceHistory = (TextView) findViewById(R.id.tvHistory);
         tvPlaceAddr = (TextView) findViewById(R.id.tvMapAddress);
         tvPlacePNum = (TextView) findViewById(R.id.tvPhoneAddress);
         tvPlaceWebAddr = (TextView) findViewById(R.id.tvWebAddress);
-        //Whrs here int
+        tvPlaceWHrs = (TextView) findViewById(R.id.tvWHrs);
+
+        ivWebAddr = (ImageView) findViewById(R.id.ivWebAddr);
 
         int chosenPlaceId = getIntent().getExtras().getInt("chosenPlaceId");
         System.out.println("Name : " + chosenPlaceId);
+
+
 
         Place p = Utility.mPlaceList.get(chosenPlaceId);
 
@@ -82,15 +100,17 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
         pWebAddr = p.getpWebAddress();
         pWHrs = p.getpWHrs();
 
-
-
         tvPlaceName.setText(pName);
         tvPlaceHistory.setText(pHistory);
         tvPlaceAddr.setText(pAddr);
         tvPlacePNum.setText(pPhoneNum);
         tvPlaceWebAddr.setText(pWebAddr);
-        //PWhrs here
+        tvPlaceWHrs.setText(pWHrs);
 
+        if(pWebAddr.equals("None")) {
+            tvPlaceWebAddr.setVisibility(View.GONE);
+            ivWebAddr.setVisibility(View.GONE);
+        }
         System.out.println("Size of the here"+pPhotos.keySet().size());
 
         for (String name : pPhotos.keySet()) {
@@ -123,7 +143,13 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
         // Gets to GoogleMap from the MapView and does initialization stuff
         mapView.getMapAsync(PlaceInfoPage.this);
 
-
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("clicked back btn yay");
+                finish();
+            }
+        });
 
     }
 
@@ -174,8 +200,7 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
 
         // For dropping a marker at a point on the Map
         LatLng marker = new LatLng(Double.parseDouble(pLat),  Double.parseDouble(pLon));
-        map.addMarker(new MarkerOptions().position(marker).title("Marker Title").snippet("Marker Description"));
-
+        map.addMarker(new MarkerOptions().position(marker).title(pName).snippet(pLat+" , " + pLon));
         // For zooming automatically to the location of the marker
         CameraPosition cameraPosition = new CameraPosition.Builder().target(marker).zoom(15).build();
         map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
