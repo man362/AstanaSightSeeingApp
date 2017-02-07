@@ -52,7 +52,7 @@ android:weightSum="1">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/PhotoCount"
+                android:text=""
                 android:ems="10"
                 android:id="@+id/tvPhotoCount"
                 android:gravity="center_vertical|center_horizontal"

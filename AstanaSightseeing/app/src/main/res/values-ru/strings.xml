@@ -236,28 +236,11 @@
         <item>09:30-19:00</item>
     </string-array>
 
-    <string name="bayterek_history">
-        The monument is meant to embody a folktale about a mythical tree of life and a magic bird of happiness: \n
-        the bird, named Samruk, had laid its egg in the crevice between two branches of a poplar tree. \n
-        The 105 m tall structure rises from a wide flat base within a raised plaza. It consists of a narrow cylindrical shaft, \n
-        surrounded by white branch-like girders that flare out near the top, supporting a gold-mirrored 22 m diameter sphere. The base contains \n
-        a ticket booth and exhibition space, with two lifts rising within the shaft to the observation deck within the \'egg\'. \n
-        Entrances to the monument are sunk below eye level, reached by stairs \n
-        from the surrounding plaza. Copied the idea from 1982 Worlds Fair Sunsphere in Knoxville, TN, USA.(266 ft. Tall) \n
-        The observation deck is 97 m above ground level, corresponding to 1997, the year that Astana became the nation\'s capital. It consists of two \n
-        levels, one with 360 degree views of Astana and beyond, with a second, higher level, reached by a flight of stairs. The top level features \n
-        a gilded hand print of the right hand of Nursultan Nazarbayev, the first President of the independent Republic of Kazakhstan, mounted in an \n
-        ornate pedestal. A plaque invites visitors to place a hand in the imprint and make a wish. Alongside the handprint, and also oriented in the direction \n
-        of the presidential palace, is a wooden sculpture of a globe and 16 radiating segments, commemorating the Congress of Leaders of World and Traditional \n
-        Religions, held several times in Astana. \n
-    </string>
-
     <string name="Photo">фоток</string>
     <string name="PhotoLabel">Рисунок</string>
     <string name="HistoryLabel">История</string>
     <string name="LocationLabel">Расположение</string>
     <string name="Contacts">Контакты</string>
     <string name="PlaceName">PlaceName</string>
-    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCyB3dm7Is57wTwRvQ5VJCVKCCqSyG79mo</string>
 
 </resources>

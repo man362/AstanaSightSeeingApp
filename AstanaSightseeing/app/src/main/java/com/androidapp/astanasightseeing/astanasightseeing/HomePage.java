@@ -30,9 +30,10 @@ public class HomePage extends AppCompatActivity {
      {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-        materialSearchView = (MaterialSearchView) findViewById(R.id.searchView);
-        final ListView lvPlacesList = (ListView)findViewById(R.id.lvPlacesList);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+         //init the widgets
+         materialSearchView = (MaterialSearchView) findViewById(R.id.searchView);
+         final ListView lvPlacesList = (ListView)findViewById(R.id.lvPlacesList);
+         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
          btnBack = (Button) findViewById(R.id.btnBack);
 
         //Set/Change Action Bar
@@ -40,15 +41,15 @@ public class HomePage extends AppCompatActivity {
         getSupportActionBar().setTitle("");
         toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
 
+
          Utility.populateTheList(Utility.mPlaceList,HomePage.this);
-        adapter = new PlacesListAdapter(getApplicationContext(), Utility.mPlaceList);
+         adapter = new PlacesListAdapter(getApplicationContext(), Utility.mPlaceList);
          lvPlacesList.setAdapter(adapter);
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
-                Utility.mPlaceList.clear();
             }
         });
 
@@ -57,15 +58,14 @@ public class HomePage extends AppCompatActivity {
 
             @Override
             public void onSearchViewShown() {
-
+                btnBack.setVisibility(View.GONE);
             }
 
             @Override
             public void onSearchViewClosed() {
+                btnBack.setVisibility(View.VISIBLE);
                 Utility.populateTheList(Utility.mPlaceList,HomePage.this);
-
                 adapter = new PlacesListAdapter(getApplicationContext(), Utility.mPlaceList);
-
                 lvPlacesList.setAdapter(adapter);
             }
         });
@@ -83,7 +83,7 @@ public class HomePage extends AppCompatActivity {
 
 
                 if(newText != null && !newText.isEmpty()){
-                    List<Place> listFound = new ArrayList<>();
+                    final List<Place> listFound = new ArrayList<>();
                     for(Place p: Utility.mPlaceList){
 
                         if(Pattern.compile(Pattern.quote(newText), Pattern.CASE_INSENSITIVE).matcher(p.placeName).find()){
@@ -94,10 +94,32 @@ public class HomePage extends AppCompatActivity {
                     adapter = new PlacesListAdapter(getApplicationContext(), listFound);
                     lvPlacesList.setAdapter(adapter);
 
+                    lvPlacesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            //System.out.println("position: " + mPlaceList.get(position).getPlaceId());
+                            int chosenPlaceId = listFound.get(position).getPlaceId();
+                            Intent intent = new Intent(HomePage.this, PlaceInfoPage.class);
+                            intent.putExtra("chosenPlaceId", chosenPlaceId);
+                            startActivity(intent);
+                        }
+                    });
+
                 }else{
 
                     adapter = new PlacesListAdapter(getApplicationContext(), Utility.mPlaceList);
                     lvPlacesList.setAdapter(adapter);
+
+                    lvPlacesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            //System.out.println("position: " + mPlaceList.get(position).getPlaceId());
+                            int chosenPlaceId = Utility.mPlaceList.get(position).getPlaceId();
+                            Intent intent = new Intent(HomePage.this, PlaceInfoPage.class);
+                            intent.putExtra("chosenPlaceId", chosenPlaceId);
+                            startActivity(intent);
+                        }
+                    });
                 }
                 return true;
             }
@@ -113,6 +135,7 @@ public class HomePage extends AppCompatActivity {
                  startActivity(intent);
              }
          });
+
 
     }
 

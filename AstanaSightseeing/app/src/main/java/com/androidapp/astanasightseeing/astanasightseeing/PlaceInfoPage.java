@@ -86,9 +86,6 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
         ivWebAddr = (ImageView) findViewById(R.id.ivWebAddr);
 
         int chosenPlaceId = getIntent().getExtras().getInt("chosenPlaceId");
-        System.out.println("Name : " + chosenPlaceId);
-
-
 
         Place p = Utility.mPlaceList.get(chosenPlaceId);
 
@@ -114,7 +111,7 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
             tvPlaceWebAddr.setVisibility(View.GONE);
             ivWebAddr.setVisibility(View.GONE);
         }
-        System.out.println("Size of the here"+pPhotos.keySet().size());
+        //System.out.println("Size of the here"+pPhotos.keySet().size());
 
         int i = 1;
         for (String name : pPhotos.keySet()) {

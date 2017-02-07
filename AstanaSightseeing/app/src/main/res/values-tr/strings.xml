@@ -236,6 +236,5 @@
     <string name="LocationLabel">Орналасқан жері</string>
     <string name="Contacts">Байланыс</string>
     <string name="PlaceName">PlaceName</string>
-    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCyB3dm7Is57wTwRvQ5VJCVKCCqSyG79mo</string>
 
 </resources>

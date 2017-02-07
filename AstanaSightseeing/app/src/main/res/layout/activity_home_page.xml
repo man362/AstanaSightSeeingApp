@@ -53,6 +53,7 @@
             android:fastScrollEnabled="true"
             android:id="@+id/lvPlacesList"
             android:scrollingCache="false"
+            android:persistentDrawingCache="scrolling"
             />
     </LinearLayout>
 

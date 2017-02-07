@@ -18,6 +18,7 @@ public class Place {
     String pAddress;
     String pPhoneNum;
     String pWebAddress;
+    String pWHrs;
 
     public String getpWHrs() {
         return pWHrs;
@@ -26,8 +27,6 @@ public class Place {
     public void setpWHrs(String pWHrs) {
         this.pWHrs = pWHrs;
     }
-
-    String pWHrs;
 
     public Place(int placeId, String placeName, int placePic){
         this.placeId = placeId;
