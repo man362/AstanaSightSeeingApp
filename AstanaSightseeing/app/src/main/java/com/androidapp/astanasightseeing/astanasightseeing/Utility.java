@@ -156,7 +156,7 @@ public class Utility {
             case 10:
                 pPhotos.put("Photo 1", R.drawable.alau_astana);
                 pPhotos.put("Photo 2", R.drawable.alau_bassein);
-                pPhotos.put("Photo 3", R.drawable.alau_inside);
+                pPhotos.put("Photo 3", R.drawable.alau_outside);
                 pPhotos.put("Photo 4", R.drawable.alau_night);
                 //pPhotos.put("Photo 5", R.drawable.alau_night);
                 //pPhotos.put("Photo 6", R.drawable.alau_outside);

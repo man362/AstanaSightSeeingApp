@@ -25,26 +25,25 @@
             android:id="@+id/iv_kazakh_lang"
             android:layout_width="46dp"
             android:layout_height="32dp"
-            android:layout_marginLeft="150dp" />
+            android:layout_gravity="center_vertical|center_horizontal" />
 
         <TextView
             android:text="Қазақша"
             android:layout_width="wrap_content"
             android:id="@+id/tvKazakhLang"
-            android:gravity="center_vertical|center_horizontal"
-            android:layout_marginLeft="125dp"
             android:textSize="24sp"
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
-            android:textColor="@color/colorAccent" />
+            android:textColor="@color/colorAccent"
+            android:layout_gravity="center_vertical|center_horizontal|center" />
 
         <ImageView
             android:layout_width="46dp"
             android:layout_height="32dp"
             app:srcCompat="@drawable/russian_flag"
             android:id="@+id/iv_russian_lang"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="150dp" />
+            android:layout_gravity="center_vertical|center_horizontal|center"
+            android:layout_marginTop="10dp" />
 
         <TextView
             android:text="Русcкий"
@@ -52,30 +51,30 @@
             android:id="@+id/tvRussianLang"
             android:layout_marginTop="10dp"
             android:gravity="center_vertical|center_horizontal"
-            android:layout_marginLeft="120dp"
             android:textSize="24sp"
             android:layout_height="32dp"
             android:textColor="@color/colorAccent"
-            android:paddingLeft="0dp" />
+            android:paddingLeft="0dp"
+            android:layout_gravity="center_vertical|center_horizontal|center" />
 
         <ImageView
             android:layout_width="46dp"
             app:srcCompat="@drawable/english_flag"
             android:id="@+id/iv_english_lang"
-            android:layout_marginTop="20dp"
             android:layout_height="32dp"
-            android:layout_marginLeft="150dp" />
+            android:layout_gravity="center_vertical|center_horizontal|center"
+            android:layout_marginTop="20dp" />
 
         <TextView
             android:text="English"
             android:layout_width="90dp"
             android:id="@+id/tvEnglishLang"
             android:layout_marginTop="10dp"
-            android:gravity="center_vertical|center_horizontal"
-            android:layout_marginLeft="129dp"
             android:textSize="24sp"
             android:layout_height="37dp"
-            android:textColor="@color/colorAccent" />
+            android:textColor="@color/colorAccent"
+            android:layout_gravity="center_vertical|center_horizontal|center"
+            android:layout_marginLeft="5dp" />
 
     </LinearLayout>
 

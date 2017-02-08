@@ -35,10 +35,8 @@
             app:searchBackIcon="@drawable/ic_action_navigation_arrow_back_inverted"
             android:textColor="#FFFFFF"
             android:textColorHint="#FFFFFF"
-
-
-
-
+            android:hint = "@string/Search"
+            
             >
 
         </com.miguelcatalan.materialsearchview.MaterialSearchView>

@@ -44,7 +44,7 @@
         <item>@drawable/piramida_astana</item>
         <item>@drawable/muzei_astana</item>
         <item>@drawable/alau_astana</item>
-        <item>@drawable/keruen_outside</item>
+        <item>@drawable/keruen_astana</item>
         <item>@drawable/astana_arena</item>
     </integer-array>
 
@@ -254,4 +254,6 @@
     <string name="LocationLabel">Location</string>
     <string name="Contacts">Contacts</string>
     <string name="PlaceName">PlaceName</string>
+    <string name = "Search" >Search</string>
+
 </resources>
