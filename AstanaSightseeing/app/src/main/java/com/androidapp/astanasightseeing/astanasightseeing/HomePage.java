@@ -70,7 +70,7 @@ public class HomePage extends AppCompatActivity {
                 btnBack.setVisibility(View.VISIBLE);
                 //Utility.mPlaceList.clear();
                 //Utility.populateTheList(Utility.mPlaceList,HomePage.this);
-                adapter = new PlacesListAdapter(getApplicationContext(), Utility.mPlaceList);
+                //adapter = new PlacesListAdapter(getApplicationContext(), Utility.mPlaceList);
                 lvPlacesList.setAdapter(adapter);
             }
         });
