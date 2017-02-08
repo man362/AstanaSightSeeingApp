@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.Locale;
 
@@ -20,6 +21,10 @@ public class LanguagePage extends AppCompatActivity {
     ImageView iv_russian_lang;
     ImageView iv_english_lang;
 
+    TextView tvKazakhLang;
+    TextView tvRusianLang;
+    TextView tvEnglishLang;
+
     ProgressDialog dialog;
 
     @Override
@@ -30,9 +35,30 @@ public class LanguagePage extends AppCompatActivity {
         iv_kazakh_lang =  (ImageView) findViewById(R.id.iv_kazakh_lang);
         iv_russian_lang = (ImageView) findViewById(R.id.iv_russian_lang);
         iv_english_lang = (ImageView) findViewById(R.id.iv_english_lang);
+
+        tvKazakhLang = (TextView) findViewById(R.id.tvKazakhLang);
+        tvRusianLang = (TextView) findViewById(R.id.tvRussianLang);
+        tvEnglishLang = (TextView) findViewById(R.id.tvEnglishLang);
+
+
+
         final Intent intent = new Intent(LanguagePage.this, HomePage.class);
 
         iv_kazakh_lang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setLanguage("Kazakh");
+
+                dialog = ProgressDialog.show(LanguagePage.this, "Translating",
+                        "Loading ... ", true);
+                new MyTask().execute("");
+
+                chosenLanguage = "Kazakh";
+            }
+        });
+
+
+        tvKazakhLang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 setLanguage("Kazakh");
@@ -59,6 +85,19 @@ public class LanguagePage extends AppCompatActivity {
             }
         });
 
+        tvRusianLang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setLanguage("Russian");
+
+                dialog = ProgressDialog.show(LanguagePage.this, "Translating",
+                        "Loading ... ", true);
+                new MyTask().execute("");
+
+                chosenLanguage = "Russian";
+            }
+        });
+
         iv_english_lang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,6 +108,18 @@ public class LanguagePage extends AppCompatActivity {
                 new MyTask().execute("");
 
 
+                chosenLanguage = "English";
+            }
+        });
+
+        tvEnglishLang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setLanguage("English");
+
+                dialog = ProgressDialog.show(LanguagePage.this, "Translating",
+                        "Loading ... ", true);
+                new MyTask().execute("");
                 chosenLanguage = "English";
             }
         });

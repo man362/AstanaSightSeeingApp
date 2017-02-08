@@ -23,72 +23,60 @@
         <ImageView
             app:srcCompat="@drawable/kazakh_language"
             android:id="@+id/iv_kazakh_lang"
-            android:layout_width="match_parent"
-            android:layout_weight="0.04"
-            android:layout_height="32dp" />
+            android:layout_width="46dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="150dp" />
 
         <TextView
             android:text="Қазақша"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:id="@+id/tvKazakhLang"
             android:gravity="center_vertical|center_horizontal"
-            android:layout_weight="0.04"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="125dp"
             android:textSize="24sp"
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
-            android:textColor="@color/theme_icons" />
+            android:textColor="@color/colorAccent" />
 
         <ImageView
-            android:layout_width="match_parent"
+            android:layout_width="46dp"
             android:layout_height="32dp"
             app:srcCompat="@drawable/russian_flag"
             android:id="@+id/iv_russian_lang"
             android:layout_marginTop="20dp"
-            android:layout_weight="0.04" />
+            android:layout_marginLeft="150dp" />
 
         <TextView
             android:text="Русcкий"
-            android:layout_width="match_parent"
+            android:layout_width="107dp"
             android:id="@+id/tvRussianLang"
             android:layout_marginTop="10dp"
-            android:layout_weight="0.08"
             android:gravity="center_vertical|center_horizontal"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="120dp"
             android:textSize="24sp"
             android:layout_height="32dp"
-            android:textColor="@color/theme_icons" />
+            android:textColor="@color/colorAccent"
+            android:paddingLeft="0dp" />
 
         <ImageView
-            android:layout_width="match_parent"
+            android:layout_width="46dp"
             app:srcCompat="@drawable/english_flag"
             android:id="@+id/iv_english_lang"
             android:layout_marginTop="20dp"
-            android:layout_weight="0.04"
-            android:layout_height="32dp" />
+            android:layout_height="32dp"
+            android:layout_marginLeft="150dp" />
 
         <TextView
             android:text="English"
-            android:layout_width="match_parent"
+            android:layout_width="90dp"
             android:id="@+id/tvEnglishLang"
             android:layout_marginTop="10dp"
-            android:layout_weight="0.04"
             android:gravity="center_vertical|center_horizontal"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="129dp"
             android:textSize="24sp"
             android:layout_height="37dp"
-            android:textColor="@color/theme_icons" />
+            android:textColor="@color/colorAccent" />
 
     </LinearLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></LinearLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></LinearLayout>
 
 </LinearLayout>
