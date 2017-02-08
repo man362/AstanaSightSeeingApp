@@ -4,11 +4,14 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.RecyclerView.OnScrollListener;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
@@ -42,7 +45,7 @@ public class HomePage extends AppCompatActivity {
         toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
 
 
-         Utility.populateTheList(Utility.mPlaceList,HomePage.this);
+        // Utility.populateTheList(Utility.mPlaceList,HomePage.this);
          adapter = new PlacesListAdapter(getApplicationContext(), Utility.mPlaceList);
          lvPlacesList.setAdapter(adapter);
 
@@ -58,13 +61,15 @@ public class HomePage extends AppCompatActivity {
 
             @Override
             public void onSearchViewShown() {
+
                 btnBack.setVisibility(View.GONE);
             }
 
             @Override
             public void onSearchViewClosed() {
                 btnBack.setVisibility(View.VISIBLE);
-                Utility.populateTheList(Utility.mPlaceList,HomePage.this);
+                //Utility.mPlaceList.clear();
+                //Utility.populateTheList(Utility.mPlaceList,HomePage.this);
                 adapter = new PlacesListAdapter(getApplicationContext(), Utility.mPlaceList);
                 lvPlacesList.setAdapter(adapter);
             }
@@ -124,6 +129,8 @@ public class HomePage extends AppCompatActivity {
                 return true;
             }
         });
+
+
 
          lvPlacesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
              @Override

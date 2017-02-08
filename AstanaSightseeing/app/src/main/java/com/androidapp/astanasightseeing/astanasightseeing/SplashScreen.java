@@ -24,7 +24,7 @@ public class SplashScreen extends AppCompatActivity {
                         waited += 100;
                     }
                 } catch (InterruptedException e) {
-                    // do nothing
+                    e.printStackTrace();
                 } finally {
                     finish();
                     Intent i = new Intent(SplashScreen.this,LanguagePage.class);

@@ -1,8 +1,10 @@
 package com.androidapp.astanasightseeing.astanasightseeing;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.media.Image;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +20,8 @@ public class LanguagePage extends AppCompatActivity {
     ImageView iv_russian_lang;
     ImageView iv_english_lang;
 
+    ProgressDialog dialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +36,11 @@ public class LanguagePage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 setLanguage("Kazakh");
+
+                dialog = ProgressDialog.show(LanguagePage.this, "Translating",
+                        "Loading ... ", true);
+                new MyTask().execute("");
+
                 chosenLanguage = "Kazakh";
             }
         });
@@ -41,6 +50,11 @@ public class LanguagePage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 setLanguage("Russian");
+
+                dialog = ProgressDialog.show(LanguagePage.this, "Translating",
+                        "Loading ... ", true);
+                new MyTask().execute("");
+
                 chosenLanguage = "Russian";
             }
         });
@@ -49,6 +63,12 @@ public class LanguagePage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 setLanguage("English");
+
+                dialog = ProgressDialog.show(LanguagePage.this, "Translating",
+                        "Loading ... ", true);
+                new MyTask().execute("");
+
+
                 chosenLanguage = "English";
             }
         });
@@ -77,8 +97,45 @@ public class LanguagePage extends AppCompatActivity {
         getBaseContext().getResources().updateConfiguration(config,
                 getBaseContext().getResources().getDisplayMetrics());
 
-        Intent i = new Intent(LanguagePage.this,HomePage.class);
-        startActivity(i);
     }
 
+
+    class MyTask extends AsyncTask<String, Integer, Void> {
+
+        public MyTask(){
+
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            //tvInfo.setText("Begin");
+        }
+
+        @Override
+        protected Void doInBackground(String... urls) {
+            Utility.populateTheList(Utility.mPlaceList, LanguagePage.this);
+            return null;
+        }
+
+
+        @Override
+        protected void onProgressUpdate(Integer... values) {
+            super.onProgressUpdate(values);
+            //tvInfo.setText("Downloaded " + values[0] + " files");
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
+
+            if (dialog.isShowing()) {
+                dialog.dismiss();
+            }
+
+            Intent i = new Intent(LanguagePage.this,HomePage.class);
+            startActivity(i);
+            //tvInfo.setText("End");
+        }
+    }
 }

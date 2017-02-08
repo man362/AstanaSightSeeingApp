@@ -19,6 +19,7 @@ public class PlacesListAdapter extends BaseAdapter {
     static class ViewHolder {
         private ImageView placePic;
         private TextView placeName;
+        int position;
     }
 
 
@@ -48,28 +49,28 @@ public class PlacesListAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(final int i, View view, ViewGroup viewGroup) {
        ViewHolder holder;
 
         if(view == null){
-
+            holder = new ViewHolder();
             LayoutInflater inflater = (LayoutInflater) mContext
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
             view = inflater.inflate(R.layout.item_places_list,viewGroup,false);
-            holder = new ViewHolder();
             holder.placePic = (ImageView) view.findViewById(R.id.ivPlacePic);
             holder.placeName = (TextView) view.findViewById(R.id.tvPlaceName);
+            holder.position = i;
             view.setTag(holder);
         }else{
             holder = (ViewHolder) view.getTag();
         }
 
-        Place place = mPlaceList.get(i);
+        final Place place = mPlaceList.get(i);
 
         //holder.placePic.setImageResource(place.getPlacePic());
         holder.placePic.setImageDrawable(mContext.getDrawable(place.getPlacePic()));
 
+       // new BitmapWorkerTask(holder.placePic).execute(place.getPlacePic());
         holder.placeName.setText(" "+place.getPlaceName());
 
         return view;
@@ -77,12 +78,15 @@ public class PlacesListAdapter extends BaseAdapter {
 
 
     class BitmapWorkerTask extends AsyncTask<Integer, Void, Bitmap> {
-        private final WeakReference<ImageView> imageViewReference;
+        ImageView mImageView;
+
+        //private final WeakReference<ImageView> imageViewReference;
         private int data = 0;
 
         public BitmapWorkerTask(ImageView imageView) {
             // Use a WeakReference to ensure the ImageView can be garbage collected
-            imageViewReference = new WeakReference<ImageView>(imageView);
+            //imageViewReference = new WeakReference<ImageView>(imageView);
+            mImageView = imageView;
         }
 
         // Decode image in background.
@@ -97,10 +101,10 @@ public class PlacesListAdapter extends BaseAdapter {
         // Once complete, see if ImageView is still around and set bitmap.
         @Override
         protected void onPostExecute(Bitmap bitmap) {
-            if (imageViewReference != null && bitmap != null) {
-                final ImageView imageView = imageViewReference.get();
-                if (imageView != null) {
-                    imageView.setImageBitmap(bitmap);
+            if (mImageView != null && bitmap != null) {
+               // final ImageView imageView = imageViewReference.get();
+                if (mImageView != null) {
+                    mImageView.setImageBitmap(bitmap);
                 }
             }
         }
