@@ -44,7 +44,7 @@
         <item>@drawable/piramida_astana</item>
         <item>@drawable/muzei_astana</item>
         <item>@drawable/alau_astana</item>
-        <item>@drawable/keruen_astana</item>
+        <item>@drawable/keruen_outside</item>
         <item>@drawable/astana_arena</item>
     </integer-array>
 

@@ -97,7 +97,7 @@ public class Utility {
                // pPhotos.put("Photo 9", R.drawable.hsh_vecher);
                 break;
             case 3:
-                pPhotos.put("Photo 1", R.drawable.mega_astana);
+                pPhotos.put("Photo 1", R.drawable.mast_night);
                 pPhotos.put("Photo 2", R.drawable.mast_mega_outside);
                 pPhotos.put("Photo 3", R.drawable.mast_eskalatory);
                 pPhotos.put("Photo 4", R.drawable.mast_from_street);
@@ -112,7 +112,7 @@ public class Utility {
             case 5:
                 pPhotos.put("Photo 1", R.drawable.opera_front);
                 pPhotos.put("Photo 2", R.drawable.opera_inside);
-                pPhotos.put("Photo 3", R.drawable.opera_performance);
+                pPhotos.put("Photo 3", R.drawable.opera_zal);
                 pPhotos.put("Photo 4", R.drawable.opera_side);
                 //pPhotos.put("Photo 5", R.drawable.opera_zal);
                 //pPhotos.put("Photo 6", R.drawable.opera_zal_f);
@@ -157,7 +157,7 @@ public class Utility {
                 pPhotos.put("Photo 1", R.drawable.alau_astana);
                 pPhotos.put("Photo 2", R.drawable.alau_bassein);
                 pPhotos.put("Photo 3", R.drawable.alau_inside);
-                pPhotos.put("Photo 4", R.drawable.alau_inside_zal);
+                pPhotos.put("Photo 4", R.drawable.alau_night);
                 //pPhotos.put("Photo 5", R.drawable.alau_night);
                 //pPhotos.put("Photo 6", R.drawable.alau_outside);
                 break;
