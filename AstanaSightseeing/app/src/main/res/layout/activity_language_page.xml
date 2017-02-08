@@ -48,7 +48,7 @@
             android:layout_weight="0.04" />
 
         <TextView
-            android:text="Руский"
+            android:text="Русcкий"
             android:layout_width="match_parent"
             android:id="@+id/tvRussianLang"
             android:layout_marginTop="10dp"
