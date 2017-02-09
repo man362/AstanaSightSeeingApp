@@ -137,7 +137,6 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
         mDemoSlider.setDuration(4000);
         mDemoSlider.addOnPageChangeListener(this);
 
-
         mapView = (MapView) findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
 
@@ -179,8 +178,6 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
     public void onMapReady(GoogleMap map) {
 //DO WHATEVER YOU WANT WITH GOOGLEMAP
 
-
-
         map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
@@ -192,6 +189,7 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
+
         //map.setMyLocationEnabled(true);
         map.getUiSettings().setMyLocationButtonEnabled(false);
         map.setTrafficEnabled(true);

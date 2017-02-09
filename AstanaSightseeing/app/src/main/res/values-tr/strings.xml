@@ -33,19 +33,19 @@
     </string-array>
 
     <integer-array name="arrOfPPics_main">
-        <item>@drawable/hazret_sultan_pic</item>
-        <item>@drawable/nur_astana_pic</item>
-        <item>@drawable/khan_shatyr_pic</item>
-        <item>@drawable/mega_astana</item>
-        <item>@drawable/asia_park</item>
-        <item>@drawable/astana_opera</item>
-        <item>@drawable/baiterek_monument</item>
-        <item>@drawable/duman_astana</item>
+        <item>@drawable/main_hazret_sultan_pic</item>
+        <item>@drawable/main_nur_astana_pic</item>
+        <item>@drawable/main_khan_shatyr_pic</item>
+        <item>@drawable/main_mega_astana</item>
+        <item>@drawable/main_asia_park</item>
+        <item>@drawable/main_astana_opera</item>
+        <item>@drawable/main_baiterek_monument</item>
+        <item>@drawable/main_duman_astana</item>
         <item>@drawable/piramida_astana</item>
-        <item>@drawable/muzei_astana</item>
-        <item>@drawable/alau_astana</item>
-        <item>@drawable/keruen_astana</item>
-        <item>@drawable/astana_arena</item>
+        <item>@drawable/main_muzei_astana</item>
+        <item>@drawable/main_alau_astana</item>
+        <item>@drawable/main_keruen_astana</item>
+        <item>@drawable/main_astana_arena</item>
     </integer-array>
 
 

@@ -65,7 +65,7 @@ public class Utility {
 
     static void populateTheHashMap(int i, HashMap<String,Integer> pPhotos){
         switch (i){
-
+            
             case 0:
                 pPhotos.put("Photo 1", R.drawable.hazret_sultan_from_sides);
                 pPhotos.put("Photo 2", R.drawable.hazret_sultan_from_sides_left);
@@ -106,14 +106,14 @@ public class Utility {
                 //pPhotos.put("Photo 7", R.drawable.mast_night);
                 break;
             case 4:
-                pPhotos.put("Photo 1", R.drawable.asia_park);
+                pPhotos.put("Photo 1", R.drawable.main_asia_park);
                 pPhotos.put("Photo 2", R.drawable.aziya_park);
                 break;
             case 5:
                 pPhotos.put("Photo 1", R.drawable.opera_front);
-                pPhotos.put("Photo 2", R.drawable.opera_inside);
-                pPhotos.put("Photo 3", R.drawable.opera_zal);
-                pPhotos.put("Photo 4", R.drawable.opera_side);
+                //pPhotos.put("Photo 2", R.drawable.opera_inside);
+                pPhotos.put("Photo 2", R.drawable.opera_zal);
+                pPhotos.put("Photo 3", R.drawable.opera_side);
                 //pPhotos.put("Photo 5", R.drawable.opera_zal);
                 //pPhotos.put("Photo 6", R.drawable.opera_zal_f);
                 //pPhotos.put("Photo 7", R.drawable.astana_opera);
@@ -130,7 +130,7 @@ public class Utility {
                 break;
             case 7:
                 pPhotos.put("Photo 1", R.drawable.duman_akva);
-                pPhotos.put("Photo 2", R.drawable.duman_astana);
+                pPhotos.put("Photo 2", R.drawable.main_duman_astana);
                 pPhotos.put("Photo 3", R.drawable.duman_front);
                 pPhotos.put("Photo 4", R.drawable.duman_inside);
                 //pPhotos.put("Photo 5", R.drawable.duman_inside_view);
@@ -154,10 +154,10 @@ public class Utility {
                 //pPhotos.put("Photo 7", R.drawable.muzei_outside_horses);
                 break;
             case 10:
-                pPhotos.put("Photo 1", R.drawable.alau_astana);
+                pPhotos.put("Photo 1", R.drawable.alau_night);
                 pPhotos.put("Photo 2", R.drawable.alau_bassein);
                 pPhotos.put("Photo 3", R.drawable.alau_outside);
-                pPhotos.put("Photo 4", R.drawable.alau_night);
+                //pPhotos.put("Photo 4", R.drawable.alau_night);
                 //pPhotos.put("Photo 5", R.drawable.alau_night);
                 //pPhotos.put("Photo 6", R.drawable.alau_outside);
                 break;

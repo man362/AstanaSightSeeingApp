@@ -30,9 +30,9 @@ public class HomePage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
-     {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_page);
+    {
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_home_page);
          //init the widgets
          materialSearchView = (MaterialSearchView) findViewById(R.id.searchView);
          final ListView lvPlacesList = (ListView)findViewById(R.id.lvPlacesList);
@@ -142,10 +142,7 @@ public class HomePage extends AppCompatActivity {
                  startActivity(intent);
              }
          });
-
-
     }
-
 
 
     @Override
@@ -156,13 +153,5 @@ public class HomePage extends AppCompatActivity {
         materialSearchView.setMenuItem(item);
         return super.onCreateOptionsMenu(menu);
     }
-
-
-    @Override
-    public void onBackPressed() {
-     super.onBackPressed();
-        Utility.mPlaceList.clear();
-    }
-
 
 }
