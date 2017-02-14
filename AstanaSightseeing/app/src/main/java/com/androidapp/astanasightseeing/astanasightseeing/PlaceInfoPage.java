@@ -4,13 +4,17 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.RemoteInput;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,8 +40,12 @@ import java.util.HashMap;
 
 import static java.lang.Double.parseDouble;
 
-public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener, OnMapReadyCallback {
+public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener, OnMapReadyCallback, GoogleMap.OnCameraMoveStartedListener,
+        GoogleMap.OnCameraMoveListener,
+        GoogleMap.OnCameraMoveCanceledListener,
+        GoogleMap.OnCameraIdleListener{
 
+    ScrollView svContainer;
     Button btnBack;
     private SliderLayout mDemoSlider;
     TextView tvPhotoCount;
@@ -63,6 +71,8 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
     String pWebAddr;
     String pWHrs;
 
+    public static final int LOCATION_PERMISSION_REQUEST_CODE = 100;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,6 +82,8 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
         //Set/Change Action Bar
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
+
+        svContainer = (ScrollView) findViewById(R.id.scMainContainer);
         btnBack = (Button) findViewById(R.id.btnBack);
 
         mDemoSlider = (SliderLayout) findViewById(R.id.slider);
@@ -139,20 +151,25 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
 
         mapView = (MapView) findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
-
         // Gets to GoogleMap from the MapView and does initialization stuff
+        mapView.setClickable(true);
+
         mapView.getMapAsync(PlaceInfoPage.this);
+
+        mapView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                return false;
+            }
+        });
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println("clicked back btn yay");
                 finish();
             }
         });
-
     }
-
 
     @Override
     public void onSliderClick(BaseSliderView slider) {
@@ -176,8 +193,7 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
 
     @Override
     public void onMapReady(GoogleMap map) {
-//DO WHATEVER YOU WANT WITH GOOGLEMAP
-
+        //DO WHATEVER YOU WANT WITH GOOGLEMAP
         map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
@@ -187,6 +203,9 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
             //                                          int[] grantResults)
             // to handle the case where the user grants the permission. See the documentation
             // for ActivityCompat#requestPermissions for more details.
+
+            ActivityCompat.requestPermissions(PlaceInfoPage.this, new String[] { android.Manifest.permission.ACCESS_FINE_LOCATION, android.Manifest.permission.ACCESS_COARSE_LOCATION },
+                    LOCATION_PERMISSION_REQUEST_CODE);
             return;
         }
 
@@ -197,6 +216,12 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
         map.setBuildingsEnabled(true);
         map.getUiSettings().setZoomControlsEnabled(true);
 
+        map.setOnCameraIdleListener(this);
+        map.setOnCameraMoveStartedListener(this);
+        map.setOnCameraMoveListener(this);
+        map.setOnCameraMoveCanceledListener(this);
+
+
         // For dropping a marker at a point on the Map
         LatLng marker = new LatLng(Double.parseDouble(pLat),  Double.parseDouble(pLon));
         map.addMarker(new MarkerOptions().position(marker).title(pName).snippet(pLat+" , " + pLon));
@@ -204,6 +229,7 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
         CameraPosition cameraPosition = new CameraPosition.Builder().target(marker).zoom(15).build();
         map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
     }
+
 
 
     @Override
@@ -231,5 +257,28 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
     public final void onPause(){
         mapView.onPause();
         super.onPause();
+    }
+
+    @Override
+    public void onCameraMove() {
+        System.out.println("The camera is moving.");
+        svContainer.requestDisallowInterceptTouchEvent(true);
+    }
+
+    @Override
+    public void onCameraMoveCanceled() {
+        System.out.println("The camera movement canceled.");
+        svContainer.requestDisallowInterceptTouchEvent(false);
+    }
+
+    @Override
+    public void onCameraIdle() {
+        System.out.println("The camera has stopped moving.");
+        svContainer.requestDisallowInterceptTouchEvent(false);
+    }
+
+    @Override
+    public void onCameraMoveStarted(int i) {
+        System.out.println("The camera has onCameraMoveStarted.");
     }
 }

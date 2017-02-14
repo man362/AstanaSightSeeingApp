@@ -58,7 +58,6 @@ public class Utility {
             //mPlaceList.add(new Place(pID, pName, pImg));
 
         }
-
         //String URL = Resources.getSystem().getString(R.string.bayterek_history);
     }
 
