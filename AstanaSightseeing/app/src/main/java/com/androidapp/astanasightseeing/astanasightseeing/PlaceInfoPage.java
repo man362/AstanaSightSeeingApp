@@ -36,7 +36,9 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import static java.lang.Double.parseDouble;
 
@@ -72,6 +74,7 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
     String pWHrs;
 
     public static final int LOCATION_PERMISSION_REQUEST_CODE = 100;
+    public static List<Place> placeList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,9 +100,19 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
 
         ivWebAddr = (ImageView) findViewById(R.id.ivWebAddr);
 
-        int chosenPlaceId = getIntent().getExtras().getInt("chosenPlaceId");
+        //Get data from the database
+        DbAccess databaseAccess = DbAccess.getInstance(this);
+        databaseAccess.open();
+        placeList = databaseAccess.getData();
+        databaseAccess.close();
 
-        Place p = Utility.mPlaceList.get(chosenPlaceId);
+        int chosenPlaceId = getIntent().getExtras().getInt("chosenPlaceId");
+        Place p = null;
+        for(int i = 0; i < placeList.size(); i ++ ){
+            if(placeList.get(i).getPlaceId() == chosenPlaceId){
+               p = placeList.get(i);
+            }
+        }
 
         pName = p.getPlaceName();
         pPhotos = p.getpPhotos();
@@ -119,7 +132,9 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
         tvPlaceWebAddr.setText(pWebAddr);
         tvPlaceWHrs.setText(pWHrs);
 
-        if(pWebAddr.equals("None")) {
+        System.out.println(pWebAddr+" here is the web address");
+
+        if(pWebAddr == null) {
             tvPlaceWebAddr.setVisibility(View.GONE);
             ivWebAddr.setVisibility(View.GONE);
         }
@@ -261,24 +276,20 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
 
     @Override
     public void onCameraMove() {
-        System.out.println("The camera is moving.");
         svContainer.requestDisallowInterceptTouchEvent(true);
     }
 
     @Override
     public void onCameraMoveCanceled() {
-        System.out.println("The camera movement canceled.");
         svContainer.requestDisallowInterceptTouchEvent(false);
     }
 
     @Override
     public void onCameraIdle() {
-        System.out.println("The camera has stopped moving.");
         svContainer.requestDisallowInterceptTouchEvent(false);
     }
 
     @Override
     public void onCameraMoveStarted(int i) {
-        System.out.println("The camera has onCameraMoveStarted.");
     }
 }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+        <item
+            android:id="@+id/all"
+            android:title="@string/All"
+            android:enabled="true"
+
+            />
+
+        <item
+            android:id="@+id/culture"
+            android:title="@string/Culture"
+            android:enabled="true" />
+
+        <item
+            android:id="@+id/entertainment"
+            android:title="@string/Entertainment"
+            android:enabled="true" />
+</menu>

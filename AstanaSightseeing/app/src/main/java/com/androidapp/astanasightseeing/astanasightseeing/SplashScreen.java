@@ -4,14 +4,15 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class SplashScreen extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
 
+public class SplashScreen extends AppCompatActivity {
+    public static List<Place> mPlaceList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-
-
         overridePendingTransition(R.anim.slidein, R.anim.slideout);
 
         Thread splashThread = new Thread() {
@@ -39,9 +40,6 @@ public class SplashScreen extends AppCompatActivity {
     protected void onStart() {
         // TODO Auto-generated method stub
         super.onStart();
-        System.out.println("----main activity---onStart---");
         overridePendingTransition(R.anim.slidein, R.anim.slideout);
     }
-
-
 }

@@ -15,10 +15,9 @@ import android.widget.TextView;
 
 import java.util.Locale;
 
-import static com.androidapp.astanasightseeing.astanasightseeing.Utility.chosenLanguage;
 
 public class LanguagePage extends AppCompatActivity {
-
+    public static String chosenLanguage = "";
     ImageView iv_kazakh_lang;
     ImageView iv_russian_lang;
     ImageView iv_english_lang;
@@ -55,9 +54,8 @@ public class LanguagePage extends AppCompatActivity {
             public void onClick(View view) {
                 setLanguage("Kazakh");
 
-                dialog = ProgressDialog.show(LanguagePage.this, "Translating",
-                        "Loading ... ", true);
-                new MyTask().execute("");
+                Intent i = new Intent(LanguagePage.this,HomePage.class);
+                startActivity(i);
 
                 chosenLanguage = "Kazakh";
             }
@@ -69,9 +67,8 @@ public class LanguagePage extends AppCompatActivity {
             public void onClick(View view) {
                 setLanguage("Kazakh");
 
-                dialog = ProgressDialog.show(LanguagePage.this, "Translating",
-                        "Loading ... ", true);
-                new MyTask().execute("");
+                Intent i = new Intent(LanguagePage.this,HomePage.class);
+                startActivity(i);
 
                 chosenLanguage = "Kazakh";
             }
@@ -83,9 +80,8 @@ public class LanguagePage extends AppCompatActivity {
             public void onClick(View view) {
                 setLanguage("Russian");
 
-                dialog = ProgressDialog.show(LanguagePage.this, "Translating",
-                        "Loading ... ", true);
-                new MyTask().execute("");
+                Intent i = new Intent(LanguagePage.this,HomePage.class);
+                startActivity(i);
 
                 chosenLanguage = "Russian";
             }
@@ -96,9 +92,8 @@ public class LanguagePage extends AppCompatActivity {
             public void onClick(View view) {
                 setLanguage("Russian");
 
-                dialog = ProgressDialog.show(LanguagePage.this, "Translating",
-                        "Loading ... ", true);
-                new MyTask().execute("");
+                Intent i = new Intent(LanguagePage.this,HomePage.class);
+                startActivity(i);
 
                 chosenLanguage = "Russian";
             }
@@ -109,10 +104,8 @@ public class LanguagePage extends AppCompatActivity {
             public void onClick(View view) {
                 setLanguage("English");
 
-                dialog = ProgressDialog.show(LanguagePage.this, "Translating",
-                        "Loading ... ", true);
-                new MyTask().execute("");
-
+                Intent i = new Intent(LanguagePage.this,HomePage.class);
+                startActivity(i);
 
                 chosenLanguage = "English";
             }
@@ -123,16 +116,16 @@ public class LanguagePage extends AppCompatActivity {
             public void onClick(View view) {
                 setLanguage("English");
 
-                dialog = ProgressDialog.show(LanguagePage.this, "Translating",
-                        "Loading ... ", true);
-                new MyTask().execute("");
+                Intent i = new Intent(LanguagePage.this,HomePage.class);
+                startActivity(i);
+
                 chosenLanguage = "English";
             }
         });
     }
 
     void setLanguage(String chosenLang){
-        Utility.mPlaceList.clear();
+        SplashScreen.mPlaceList.clear();
         String language;
 
         switch(chosenLang){
@@ -154,46 +147,6 @@ public class LanguagePage extends AppCompatActivity {
         getBaseContext().getResources().updateConfiguration(config,
                 getBaseContext().getResources().getDisplayMetrics());
 
-    }
-
-
-    class MyTask extends AsyncTask<String, Integer, Void> {
-
-        public MyTask(){
-
-        }
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            //tvInfo.setText("Begin");
-        }
-
-        @Override
-        protected Void doInBackground(String... urls) {
-            Utility.populateTheList(Utility.mPlaceList, LanguagePage.this);
-            return null;
-        }
-
-
-        @Override
-        protected void onProgressUpdate(Integer... values) {
-            super.onProgressUpdate(values);
-            //tvInfo.setText("Downloaded " + values[0] + " files");
-        }
-
-        @Override
-        protected void onPostExecute(Void result) {
-            super.onPostExecute(result);
-
-            if (dialog.isShowing()) {
-                dialog.dismiss();
-            }
-
-            Intent i = new Intent(LanguagePage.this,HomePage.class);
-            startActivity(i);
-            //tvInfo.setText("End");
-        }
     }
 
     public void askPermissions(){

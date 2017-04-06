@@ -1,17 +1,12 @@
 package com.androidapp.astanasightseeing.astanasightseeing;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import java.lang.ref.WeakReference;
 import java.util.List;
 
 public class PlacesListAdapter extends BaseAdapter {
@@ -22,16 +17,13 @@ public class PlacesListAdapter extends BaseAdapter {
         int position;
     }
 
-
     private Context mContext;
     private List<Place> mPlaceList;
-
 
     public PlacesListAdapter(Context mContext, List<Place> mPlaceList){
         this.mContext = mContext;
         this.mPlaceList = mPlaceList;
     }
-
 
     @Override
     public int getCount() {
@@ -66,48 +58,13 @@ public class PlacesListAdapter extends BaseAdapter {
         }
 
         final Place place = mPlaceList.get(i);
+        int place_id = mContext.getResources().getIdentifier(place.getPicName(), "drawable",
+                mContext.getPackageName());
 
-        //holder.placePic.setImageResource(place.getPlacePic());
-        holder.placePic.setImageDrawable(mContext.getDrawable(place.getPlacePic()));
-
-       // new BitmapWorkerTask(holder.placePic).execute(place.getPlacePic());
+        holder.placePic.setImageResource(place_id);
         holder.placeName.setText(" "+place.getPlaceName());
 
         return view;
-    }
-
-
-    class BitmapWorkerTask extends AsyncTask<Integer, Void, Bitmap> {
-        ImageView mImageView;
-
-        //private final WeakReference<ImageView> imageViewReference;
-        private int data = 0;
-
-        public BitmapWorkerTask(ImageView imageView) {
-            // Use a WeakReference to ensure the ImageView can be garbage collected
-            //imageViewReference = new WeakReference<ImageView>(imageView);
-            mImageView = imageView;
-        }
-
-        // Decode image in background.
-        @Override
-        protected Bitmap doInBackground(Integer... params) {
-            data = params[0];
-
-            return BitmapFactory.decodeResource(mContext.getResources(),
-                    data);
-        }
-
-        // Once complete, see if ImageView is still around and set bitmap.
-        @Override
-        protected void onPostExecute(Bitmap bitmap) {
-            if (mImageView != null && bitmap != null) {
-               // final ImageView imageView = imageViewReference.get();
-                if (mImageView != null) {
-                    mImageView.setImageBitmap(bitmap);
-                }
-            }
-        }
     }
 }
 
