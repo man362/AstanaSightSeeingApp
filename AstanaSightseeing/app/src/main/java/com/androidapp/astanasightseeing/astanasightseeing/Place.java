@@ -17,7 +17,9 @@ public class Place {
     String pWHrs;
     String category;
 
-    public Place(int placeId, String placeName, String picName, String pHistory,String pLat, String pLon,String pAddress, String pPhoneNum, String pWebAddress,String pWHrs,String category){
+    String pBusNumber;
+
+    public Place(int placeId, String placeName, String picName, String pHistory,String pLat, String pLon,String pAddress, String pPhoneNum, String pWebAddress,String pWHrs,String category,String pBusNumber){
         this.placeId = placeId;
         this.placeName = placeName;
         this.picName = picName;
@@ -33,6 +35,15 @@ public class Place {
         this.pWebAddress = pWebAddress;
         this.pWHrs = pWHrs;
         this.category = category;
+        this.pBusNumber = pBusNumber;
+    }
+
+    public String getpBusNumber() {
+        return pBusNumber;
+    }
+
+    public void setpBusNumber(String pBusNumber) {
+        this.pBusNumber = pBusNumber;
     }
 
     public HashMap<String, Integer> getpPhotos() {

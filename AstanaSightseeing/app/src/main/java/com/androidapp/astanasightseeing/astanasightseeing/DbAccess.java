@@ -83,8 +83,9 @@ public class DbAccess {
             String webaddress = cursor.getString(cursor.getColumnIndex("WEBADDRESS"));
             String working_hrs = cursor.getString(cursor.getColumnIndex("WORKING_HRS"));
             String category = cursor.getString(cursor.getColumnIndex("CATEGORY"));
+            String busNumber = cursor.getString(cursor.getColumnIndex("BUS_NUMBER"));
 
-            mPlaceList.add(new Place(id, name, picture_name, history,lat,lon,address,phone,webaddress,working_hrs,category));
+            mPlaceList.add(new Place(id, name, picture_name, history,lat,lon,address,phone,webaddress,working_hrs,category,busNumber));
             cursor.moveToNext();
         }
         cursor.close();

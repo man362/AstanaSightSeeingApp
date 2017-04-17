@@ -57,6 +57,7 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
     TextView tvPlacePNum;
     TextView tvPlaceWebAddr;
     TextView tvPlaceWHrs;
+    TextView tvPlaceBusNumber;
 
     ImageView ivWebAddr;
 
@@ -72,6 +73,7 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
     String pPhoneNum;
     String pWebAddr;
     String pWHrs;
+    String pBusNumber;
 
     public static final int LOCATION_PERMISSION_REQUEST_CODE = 100;
     public static List<Place> placeList = new ArrayList<>();
@@ -97,6 +99,7 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
         tvPlaceWebAddr = (TextView) findViewById(R.id.tvWebAddress);
         tvPlaceWHrs = (TextView) findViewById(R.id.tvWHrs);
         tvPhotoCount = (TextView) findViewById(R.id.tvPhotoCount);
+        tvPlaceBusNumber = (TextView) findViewById(R.id.tvBusTime);
 
         ivWebAddr = (ImageView) findViewById(R.id.ivWebAddr);
 
@@ -123,6 +126,7 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
         pPhoneNum = p.getpPhoneNum();
         pWebAddr = p.getpWebAddress();
         pWHrs = p.getpWHrs();
+        pBusNumber = p.getpBusNumber();
 
         tvPlaceName.setText(pName);
         tvPhotoCount.setText(pPhotos.keySet().size() + " "+ getResources().getString(R.string.Photo));
@@ -131,6 +135,7 @@ public class PlaceInfoPage extends AppCompatActivity implements BaseSliderView.O
         tvPlacePNum.setText(pPhoneNum);
         tvPlaceWebAddr.setText(pWebAddr);
         tvPlaceWHrs.setText(pWHrs);
+        tvPlaceBusNumber.setText(pBusNumber);
 
         System.out.println(pWebAddr+" here is the web address");
 

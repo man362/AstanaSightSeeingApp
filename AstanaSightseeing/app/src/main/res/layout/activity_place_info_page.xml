@@ -213,6 +213,14 @@ android:weightSum="1"
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        custom:srcCompat="@mipmap/image_bus"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/ivBusTime" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         custom:srcCompat="@mipmap/image_web_address"
                         android:layout_marginLeft="5dp"
                         android:layout_marginTop="10dp"
@@ -251,6 +259,16 @@ android:weightSum="1"
                         android:id="@+id/tvWHrs"
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="5dp"
+                        android:gravity="left|center_vertical|center_horizontal" />
+
+                    <TextView
+                        android:text="5"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        android:id="@+id/tvBusTime"
+                        android:layout_weight="0.23"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="10dp"
                         android:gravity="left|center_vertical|center_horizontal" />
 
                     <TextView
